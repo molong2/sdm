@@ -1,0 +1,1674 @@
+{
+  "DAY_EVENTS": {
+    "1": {
+      "id": "day-1-commute",
+      "title": "퇴근길",
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "초자연재난관리국 세광특별시 지부 청사 정문",
+          "time": "18:40",
+          "text": "복직 첫날이 끝났다.\n\n무거운 서류 가방을 어깨에 걸치고 청사 유리문을 밀고 나왔다. 닫히는 문 속에 로비가 반사됐다가 사라졌다.\n\n아직 나에게는 너무 낯선 곳이었다. 내가 이 곳에서 근무했다는 사실마저 현실감이 없게 느껴졌다.\n\n내가 겪은 일이라기보다는......\n\n그래, 마치 아주 오래전에 꾼 꿈 속에서 한 번 와봤던 것 같은 느낌.\n\n나는 자전거에 올라타 집으로 향했다.",
+          "choices": [
+            {
+              "label": "페달을 밟는다",
+              "next": "cafe_sighting"
+            }
+          ]
+        },
+        "cafe_sighting": {
+          "id": "cafe_sighting",
+          "location": "귀가 중 — 골목 어귀",
+          "time": "19:05",
+          "text": "익숙한 골목으로 들어서자 작은 카페 하나가 눈에 들어왔다.\n\n간판도, 창문 너머 따뜻한 조명도 어딘가 낯이 익었다. \n\n자주 들르던 곳이었나?\n\n기억을 더듬어 봐도 정확히는 떠오르지 않았다.\n\n들어가 보면 뭔가 알 수 있을지도 모른다는 생각이 잠깐 스쳤다.",
+          "choices": [
+            {
+              "label": "카페에 들어가 본다",
+              "next": "cafe_enter"
+            },
+            {
+              "label": "그냥 집으로 향한다",
+              "next": "go_home_plain"
+            }
+          ]
+        },
+        "go_home_plain": {
+          "id": "go_home_plain",
+          "location": "귀가 중",
+          "time": "19:30",
+          "text": "별다른 일 없이 집으로 향했다.\n\n문을 열고 들어가 가방을 내려놓았다. 씻고 누우니 내일 일이 어렴풋이 떠올랐다가 곧 졸음에 묻혔다.\n\n짧았던 하루가 끝났다. 내일은 더 고되겠지.\n\n아무렴 상관없었다. 주어진 일이니 최선을 다할 뿐.",
+          "isEnd": true
+        },
+        "cafe_enter": {
+          "id": "cafe_enter",
+          "location": "낯익은 카페",
+          "time": "19:07",
+          "text": "문을 밀고 들어가자 점원이 가볍게 인사를 건넸다.\n\n\"어서 오세요! 오랜만에 뵙네요?\"\n\n반기는 듯한 말투를 보니 나와 확실히 면식이 있는 사이인 듯했다.\n\n내게 무슨 일이 있었는지는 모르는 모양이고.\n\n하기야 정부 기관의 요원이 근 몇 년의 기억을 전부 잃었다는 이야기가 민간에까지 퍼졌을 리는 없었다.\n\n물론 내가 나서서 이야기할 이유도 없기는 매한가지였다.\n\n아무렇지 않은 체하며, 메뉴판 앞에 서서 잠깐 고민했다.",
+          "choices": [
+            {
+              "label": "조금 둘러보다 나간다",
+              "next": "cafe_leave_empty"
+            },
+            {
+              "label": "한 잔만 산다",
+              "next": "cafe_order_single"
+            },
+            {
+              "label": "두 잔을 산다",
+              "next": "cafe_order1"
+            },
+            {
+              "label": "세 잔을 산다",
+              "next": "cafe_order_triple"
+            }
+          ]
+        },
+        "cafe_leave_empty": {
+          "id": "cafe_leave_empty",
+          "location": "귀가 중",
+          "time": "19:32",
+          "text": "결국 아무것도 사지 않고 카페를 나섰다.\n\n아직도 그곳으로 발길이 이끌린 이유는 알 수 없었다.\n\n집에 도착해 씻고 누웠다. 짧았던 하루는 그것으로 끝났다.",
+          "isEnd": true
+        },
+        "cafe_order_single": {
+          "id": "cafe_order_single",
+          "location": "귀가 중",
+          "time": "19:40",
+          "text": "따뜻한 음료 한 잔을 사서 나왔다.\n\n집에 도착해서는 받아온 서류를 가방에서 꺼내 훑어보았다. \n\n음료를 다 마실 즈음이 되자 눈이 감겨왔다.",
+          "isEnd": true
+        },
+        "cafe_order_triple": {
+          "id": "cafe_order_triple",
+          "location": "귀가 중",
+          "time": "19:45",
+          "text": "세 잔이나 샀던 건 순간의 충동이었다.\n\n돌이켜 보면 내가 커피를 그리 좋아하는 건지도 잘 모르겠는데.\n\n집에 도착해 테이블 위에 놓여 있는 일회용 컵 세 개를 차례로 비웠다.\n\n오랫동안 커피를 마실 일이 없어서였을까. 정신이 점점 또렷해졌다. \n\n잠들어 보려 누워도 잠이 오지 않았다.\n\n결국 뜬눈으로 밤을 지새웠다.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "caffeineAllNighter": true
+          }
+        },
+        "cafe_order1": {
+          "id": "cafe_order1",
+          "location": "낯익은 카페 — 주문대",
+          "time": "19:09",
+          "text": "\"아, 두 잔이요. 첫 잔은 어떤 걸로 하시겠어요?\"\n\n메뉴판을 다시 들여다봤다.",
+          "choices": [
+            {
+              "label": "아메리카노",
+              "next": "cafe_order2_after_ame"
+            },
+            {
+              "label": "카페라떼",
+              "next": "cafe_order2_after_latte"
+            },
+            {
+              "label": "초콜릿 라떼",
+              "next": "cafe_order2_after_choco"
+            },
+            {
+              "label": "에스프레소",
+              "next": "cafe_order2_after_espresso"
+            }
+          ]
+        },
+        "cafe_order2_after_ame": {
+          "id": "cafe_order2_after_ame",
+          "location": "낯익은 카페 — 주문대",
+          "time": "19:10",
+          "text": "\"두 번째 잔은요?\"",
+          "choices": [
+            {
+              "label": "아메리카노",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "카페라떼",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "초콜릿 라떼",
+              "next": "cafe_choco_event_ame"
+            },
+            {
+              "label": "자몽에이드",
+              "next": "cafe_two_neutral"
+            }
+          ]
+        },
+        "cafe_order2_after_latte": {
+          "id": "cafe_order2_after_latte",
+          "location": "낯익은 카페 — 주문대",
+          "time": "19:10",
+          "text": "\"두 번째 잔은요?\"",
+          "choices": [
+            {
+              "label": "아메리카노",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "카페라떼",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "초콜릿 라떼",
+              "next": "cafe_choco_event_latte"
+            },
+            {
+              "label": "자몽에이드",
+              "next": "cafe_two_neutral"
+            }
+          ]
+        },
+        "cafe_order2_after_espresso": {
+          "id": "cafe_order2_after_espresso",
+          "location": "낯익은 카페 — 주문대",
+          "time": "19:10",
+          "text": "\"두 번째 잔은요?\"",
+          "choices": [
+            {
+              "label": "아메리카노",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "카페라떼",
+              "next": "cafe_two_neutral"
+            },
+            {
+              "label": "초콜릿 라떼",
+              "next": "cafe_choco_event_espresso"
+            },
+            {
+              "label": "자몽에이드",
+              "next": "cafe_two_neutral"
+            }
+          ]
+        },
+        "cafe_order2_after_choco": {
+          "id": "cafe_order2_after_choco",
+          "location": "낯익은 카페 — 주문대",
+          "time": "19:10",
+          "text": "\"두 번째 잔은요?\"",
+          "choices": [
+            {
+              "label": "아메리카노",
+              "next": "cafe_choco_event_ame"
+            },
+            {
+              "label": "카페라떼",
+              "next": "cafe_choco_event_latte"
+            },
+            {
+              "label": "초콜릿 라떼",
+              "next": "cafe_choco_event_both"
+            },
+            {
+              "label": "자몽에이드",
+              "next": "cafe_choco_event_grapefruit"
+            }
+          ]
+        },
+        "cafe_two_neutral": {
+          "id": "cafe_two_neutral",
+          "location": "귀가 중",
+          "time": "19:50",
+          "text": "두 잔을 들고 집으로 돌아왔다.\n\n서류를 펼쳐놓은 채 두 잔을 차례로 비웠다.\n\n막 복직한 직후여서일까, 특별히 눈여겨볼 내용은 없는 듯했다.\n\n다 마실 즈음엔 눈이 무거워졌다. 나는 책상 위에서 스르르 잠들었다.",
+          "isEnd": true
+        },
+        "cafe_choco_event_ame": {
+          "id": "cafe_choco_event_ame",
+          "location": "귀가 중",
+          "time": "19:55",
+          "text": "집에 도착하자마자 아메리카노에 손이 갔다.\n\n남은 건 초콜릿 라떼였다. 한 입 마시자마자 든 감상은......\n\n'너무 달다.'\n\n'내가 이걸 왜 시켰지?'\n\n딱히 단 걸 좋아하지도 않는데 주문하게 됐다는 사실이 새삼 이상했다. 다음부턴 시키지 말아야겠다고 생각하며 잔을 내려놓았다.\n\n이것도 습관이었겠지, 뭐.\n\n지금의 나에게는 별 의미가 없지만.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "chocoLatteUnease": true
+          }
+        },
+        "cafe_choco_event_latte": {
+          "id": "cafe_choco_event_latte",
+          "location": "귀가 중",
+          "time": "19:55",
+          "text": "집에 도착하자마자 카페라떼에 손이 갔다.\n\n남은 건 초콜릿 라떼였다. 한 입 마시자마자 든 감상은......\n\n'너무 달다.'\n\n'내가 이걸 왜 시켰지?'\n\n딱히 단 걸 좋아하지도 않는데 주문하게 됐다는 사실이 새삼 이상했다. 다음부턴 시키지 말아야겠다고 생각하며 잔을 내려놓았다.\n\n이것도 습관이었겠지, 뭐.\n\n지금의 나에게는 별 의미가 없지만.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "chocoLatteUnease": true
+          }
+        },
+        "cafe_choco_event_espresso": {
+          "id": "cafe_choco_event_espresso",
+          "location": "귀가 중",
+          "time": "19:55",
+          "text": "집에 도착하자마자 에스프레소에 손이 갔다.\n\n남은 건 초콜릿 라떼였다. 한 입 마시자마자 든 감상은......\n\n'너무 달다.'\n\n'내가 이걸 왜 시켰지?'\n\n딱히 단 걸 좋아하지도 않는데 주문하게 됐다는 사실이 새삼 이상했다. 다음부턴 시키지 말아야겠다고 생각하며 잔을 내려놓았다.\n\n이것도 습관이었겠지, 뭐.\n\n지금의 나에게는 별 의미가 없지만.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "chocoLatteUnease": true
+          }
+        },
+        "cafe_choco_event_both": {
+          "id": "cafe_choco_event_both",
+          "location": "귀가 중",
+          "time": "19:55",
+          "text": "집에 도착해 초콜릿 라떼 두 잔을 차례로 비웠다.\n\n한 입, 두 입... 마실수록 단맛이 점점 거슬렸다.\n\n'이런 걸 두 잔이나 시켰다니.'\n\n다음부턴 절대 시키지 말아야겠다고 생각하며 마지막 잔을 내려놓았다.\n\n이것도 습관이었겠지, 뭐.\n\n지금의 나에게는 별 의미가 없지만.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "chocoLatteUnease": true
+          }
+        }
+      }
+    },
+    "2": {
+      "id": "day-2-commute",
+      "title": "퇴근길",
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "초자연재난관리국 세광특별시 지부 청사 정문",
+          "time": "18:50",
+          "text": "드디어 퇴근이었다.\n\n자전거를 세워둔 곳으로 향하며 가방을 고쳐 멨다.\n\n그때, 뒤에서 다급한 페달 소리가 들렸다.",
+          "choices": [
+            {
+              "label": "뒤를 돌아본다",
+              "next": "chase"
+            }
+          ]
+        },
+        "chase": {
+          "id": "chase",
+          "location": "청사 후문 자전거 보관소",
+          "time": "18:51",
+          "text": "자전거 한 대가 빠르게 다가와 옆에 멈춰 섰다.\n\n청담이었다. 숨을 몰아쉬며 헬멧을 고쳐 썼다.\n\n\"팀장님! 잠깐만요!\"",
+          "choices": [
+            {
+              "label": "무슨 일이냐고 묻는다",
+              "next": "ask"
+            }
+          ]
+        },
+        "ask": {
+          "id": "ask",
+          "location": "청사 후문 자전거 보관소",
+          "time": "18:52",
+          "text": "\"오늘 결재해주신 그 서류요. 라디오 차단장비 설치 당직 말이에요.\"\n\n청담이 숨을 고르며 물었다.\n\n\"같이 가 주시는 거죠?\"",
+          "choices": [
+            {
+              "label": "안 그래도 위치로 가고 있는 참이었다.",
+              "next": "join"
+            },
+            {
+              "label": "그럼 함께 가지.",
+              "next": "join"
+            },
+            {
+              "label": "나는 다른 업무를 볼 예정이다만.",
+              "next": "decline"
+            }
+          ]
+        },
+        "decline": {
+          "id": "decline",
+          "location": "귀가 중",
+          "time": "19:05",
+          "text": "\"아... 그러시군요. 그럼 저랑 야명 둘이 다녀올게요.\"\n\n청담은 다시 헬멧을 고쳐 쓰고 페달을 밟아 사라졌다.\n\n나는 집으로 돌아와 가방을 내려놓았다.\n\n볼 업무가 있다는 이야기는 거짓말이 아니었다.\n\n가방에서 챙겨 온 서류 한 무더기를 꺼낸 나는, 피로에 잠들기 전까지 쭉 문서를 검토했다.\n\n이렇게라도 하면 잃은 기억이 돌아올까, 하는 부질없는 희망을 가지고서..",
+          "isEnd": true
+        },
+        "join": {
+          "id": "join",
+          "location": "청사 후문 자전거 보관소",
+          "time": "18:53",
+          "text": "\"오! 그럼 같이 가요. 야명은 벌써 현장에 가 있을 거예요.\"\n\n청담이 활짝 웃으며 앞장서 페달을 밟기 시작했다.",
+          "choices": [
+            {
+              "label": "뒤따라간다",
+              "next": "install_site"
+            }
+          ]
+        },
+        "install_site": {
+          "id": "install_site",
+          "location": "세광대로 — GBS 방송 위험 구간",
+          "time": "21:40",
+          "text": "현장에 도착하니 야명이 먼저 와서 장비를 정리하고 있었다.\n\n빗방울이 하나둘 떨어지기 시작했다.\n\n\"타이밍 좋게 오셨네요.\" \n\n야명이 씩 웃었다.\n\n\"우산도 없이 다니나?\"\n\n\"팀장님도 참, 저희 예산 부족이라고 비품도 잘 안 나오잖아요.\"",
+          "choices": [
+            {
+              "label": "장비 설치를 돕는다",
+              "next": "install_work"
+            }
+          ]
+        },
+        "install_work": {
+          "id": "install_work",
+          "location": "세광대로 — GBS 방송 위험 구간",
+          "time": "22:05",
+          "text": "아무렴 상관없었다. 목적은 업무였으니 그만 잘 해내면 그만이었다.\n      \n팀원들과 손을 맞춰 차단장비를 설치했다. 그다지 오래 걸리는 작업은 아니었다.\n\n설치를 마치고는 차에 기대 앉아 시시콜콜한 이야기를 나눴다. \n\n다음 주 사무용품 신청 마감이나, 요즘 점심 메뉴가 부실하다는 둥, 누가 야근을 더 많이 했는지 같은 이야기들.\n\n나는 가만히 서서 듣기만 했다.\n\n야명이 졸린 눈을 비비며 하품을 했다.",
+          "choices": [
+            {
+              "label": "무전으로 다른 구역 상황을 확인한다",
+              "next": "radio_check"
+            }
+          ]
+        },
+        "radio_check": {
+          "id": "radio_check",
+          "location": "세광대로 — GBS 방송 위험 구간",
+          "time": "22:30",
+          "text": "청담이 무전기를 들어 다른 구역에 나가 있는 요원들을 호출했다.\n\n\"여기는 세광대로, 설치 완료. 다른 구역 상황 보고해주십시오.\"\n\n차례로 응답이 돌아왔다.\n\n\"청룡1팀, 이상무.\"\n\"백호2팀, 이상무.\"\n\"현무2팀도 이상 없습니다.\"\n\n다들 별일 없이 마무리한 모양이었다.",
+          "choices": [
+            {
+              "label": "철수한다",
+              "next": "install_done"
+            }
+          ]
+        },
+        "install_done": {
+          "id": "install_done",
+          "location": "귀가 중",
+          "time": "23:10",
+          "text": "남은 장비를 정리한 뒤 함께 철수했다.\n\n\"오늘은 무사히 넘어가겠네요.\"\n\n청담이 안도하는 모습을 보니 나도 마음이 놓였다.\n\n집에 도착해선 비에 젖은 옷을 벗어두고 자리에 누웠다.\n\n눈을 감기 전에 마지막으로 한 생각은,\n\n그래도 오늘은 제법 보람찬 하루였다는 것.",
+          "isEnd": true
+        }
+      }
+    },
+    "3": {
+      "id": "day-3-commute",
+      "title": "퇴근길",
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "초자연재난관리국 세광특별시 지부 지하주차장",
+          "time": "19:20",
+          "text": "오늘은 비 예보가 있어서 차를 끌고 왔다.\n\n문서들을 조수석에 내려놓고 시동을 걸었다. 이어서 자동으로 라디오가 켜졌다.\n\n아까 뉴스 채널에 맞춰두었던 것 같은데, 어느새 GBS 채널로 넘어가 있었다.\n\n주차장을 빠져나오는 동안 날씨 예보와 저녁 교통 안내가 이어졌다. 별다른 이상은 없었다.\n\n세광대로로 진입하는 순간, 빗방울이 앞 유리를 두드리기 시작했다.",
+          "choices": [
+            {
+              "label": "와이퍼를 켜고 계속 달린다",
+              "next": "broadcast_starts"
+            }
+          ]
+        },
+        "broadcast_starts": {
+          "id": "broadcast_starts",
+          "location": "세광대로 — 귀가 중",
+          "time": "19:35",
+          "text": "세광대로 중간쯤 접어들었을 때였다.\n\n라디오에서 교통상황 안내가 시작됐다. 아나운서의 목소리는 차분하고 또렷했다. 익숙한 GBS 톤이었다.\n\n\"세광대로 방면 차량 정체가 예상됩니다. 오후역 방면 우회를 권고드립니다.\"\n\n특별히 이상한 부분은 없었다.\n\n— 하지만.\n\n지금은 저녁 7시 35분. 비가 내리고 있다. 차 안에서 GBS 라디오를 듣고 있다.\n\n발현 조건 전부가 일치한다.",
+          "choices": [
+            {
+              "label": "즉시 라디오 전원을 끈다",
+              "next": "radio_off",
+              "setFlags": {
+                "day3_radioOff": true
+              }
+            },
+            {
+              "label": "볼륨을 낮추고 계속 운전한다",
+              "next": "volume_down",
+              "setFlags": {
+                "day3_wrong": true
+              }
+            },
+            {
+              "label": "방송을 끝까지 들어본다",
+              "next": "keep_listening",
+              "setFlags": {
+                "day3_wrong": true
+              }
+            }
+          ]
+        },
+        "radio_off": {
+          "id": "radio_off",
+          "location": "세광대로 — 귀가 중",
+          "time": "19:36",
+          "text": "라디오 전원 버튼을 눌렀다.\n\n차 안이 순식간에 조용해졌다. 빗소리와 와이퍼 소리만 남았다.\n\n오른쪽 갓길이 눈에 들어왔다.",
+          "choices": [
+            {
+              "label": "갓길에 차를 세운다",
+              "next": "pullover_safe",
+              "setFlags": {
+                "day3_pulledOver": true
+              }
+            },
+            {
+              "label": "집이 가까우니 그냥 계속 달린다",
+              "next": "keep_driving_noradio",
+              "setFlags": {
+                "day3_wrong": true
+              }
+            }
+          ]
+        },
+        "pullover_safe": {
+          "id": "pullover_safe",
+          "location": "세광대로 — 갓길",
+          "time": "19:37",
+          "text": "후방 차량을 확인하고 천천히 갓길에 차를 세웠다.\n\n핸드브레이크를 당기고 잠시 눈을 감았다. 머릿속을 점검했다. 갑자기 어딘가로 가고 싶다거나, 특정 경로가 옳다는 느낌 같은 건 없었다. 청취 시간도 짧았다.\n\n다음은 하차다.",
+          "choices": [
+            {
+              "label": "차에서 내려 가드레일 쪽으로 물러선다",
+              "next": "exit_car",
+              "setFlags": {
+                "day3_exited": true
+              }
+            },
+            {
+              "label": "차 안에서 잠시 쉰다",
+              "next": "stay_in_car",
+              "setFlags": {
+                "day3_wrong": true
+              }
+            }
+          ]
+        },
+        "exit_car": {
+          "id": "exit_car",
+          "location": "세광대로 — 갓길",
+          "time": "19:38",
+          "text": "차에서 내려 가드레일 쪽으로 물러섰다. 빗속에 서 있으니 금방 어깨가 젖었다.\n\n스스로를 점검했다. 어딘가로 가야 한다는 충동도, 이상한 방향감도 없었다. 괜찮다.\n\n그때, 옆 차로에서 달려오던 차 한 대가 빗길에 미끄러지며 정차해있던 내 차 범퍼를 스쳐 지나갔다.\n\n\"─!\"\n\n상대 차량은 비상등을 켜고 멈췄다. 나는 외부에 서 있었기 때문에 부딪히지 않았다.",
+          "choices": [
+            {
+              "label": "상대 차량으로 다가간다",
+              "next": "end_safe"
+            }
+          ]
+        },
+        "stay_in_car": {
+          "id": "stay_in_car",
+          "location": "세광대로 — 갓길",
+          "time": "19:38",
+          "text": "차 안에 그대로 앉아 있었다.\n\n빗소리가 지붕을 두드렸다. 좌석에 등을 기대고 눈을 감았다.\n\n그 순간, 옆 차로에서 미끄러진 차 한 대가 갓길로 밀려들며 내 차 측면을 쾅 하고 들이받았다.\n\n충격으로 몸이 옆으로 쏠렸다. 안전띠에 갈비뼈가 세게 눌렸다.",
+          "choices": [
+            {
+              "label": "상태를 확인한다",
+              "next": "end_injured"
+            }
+          ]
+        },
+        "end_safe": {
+          "id": "end_safe",
+          "location": "세광대로 — 갓길",
+          "time": "19:50",
+          "text": "상대 운전자도 방금 무언가 이상한 방송을 들었던 모양이었다. 정신이 없어 보였다.\n\n범퍼가 긁혔다. 표면 파손 정도였다.\n\n연락처를 교환하고 상황을 정리했다. 빗속에서 꽤 오래 서 있었지만, 몸은 멀쩡했다.\n\n상급자에게 발현 상황을 보고하는 메시지를 남겼다.\n\n차에 올라 집으로 향했다. 오늘 하루가 끝났다.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "day3_safe": true,
+            "day3EventDone": true
+          }
+        },
+        "keep_driving_noradio": {
+          "id": "keep_driving_noradio",
+          "location": "세광대로 — 귀가 중",
+          "time": "19:40",
+          "text": "라디오는 껐지만 그냥 계속 달렸다.\n\n빗줄기가 굵어졌다. 와이퍼가 빠르게 움직였다.\n\n전방에서 갑자기 차 한 대가 끼어들었다.",
+          "choices": [
+            {
+              "label": "급제동을 밟는다",
+              "next": "end_injured"
+            }
+          ]
+        },
+        "volume_down": {
+          "id": "volume_down",
+          "location": "세광대로 — 귀가 중",
+          "time": "19:36",
+          "text": "볼륨 다이얼을 낮췄다.\n\n방송 소리가 작아졌다. 여전히 들렸다.\n\n\"...오후역 방면 우회를 권고드립니다.\"\n\n어느새 차선을 바꾸고 있었다. 오후역 방향으로.",
+          "choices": [
+            {
+              "label": "계속 운전한다",
+              "next": "accident_losing_control"
+            }
+          ]
+        },
+        "keep_listening": {
+          "id": "keep_listening",
+          "location": "세광대로 — 귀가 중",
+          "time": "19:38",
+          "text": "계속 들었다.\n\n방송은 차분하게 이어졌다. 별다른 이상이 느껴지지 않았다.\n\n\"...24번 교차로 방향으로 진입하시면 정체 구간을 피하실 수 있습니다.\"\n\n나는 그 말대로 핸들을 꺾었다. 자연스럽게.\n\n— 그게 이상하다는 생각을 한 건, 이미 교차로에 들어서고 난 뒤였다.",
+          "choices": [
+            {
+              "label": "라디오를 끈다",
+              "next": "accident_losing_control"
+            }
+          ]
+        },
+        "accident_losing_control": {
+          "id": "accident_losing_control",
+          "location": "세광대로 24번 교차로 인근",
+          "time": "19:42",
+          "text": "전방에서 갑자기 불빛이 쏟아졌다.\n\n반사적으로 브레이크를 밟았지만, 이미 판단이 0.5초쯤 늦었다.\n\n쾅.\n\n차가 충격과 함께 왼쪽으로 튕겼다. 에어백이 터지지는 않았다. 안전띠가 가슴을 세게 잡아챘다.",
+          "choices": [
+            {
+              "label": "상태를 확인한다",
+              "next": "end_injured"
+            }
+          ]
+        },
+        "end_injured": {
+          "id": "end_injured",
+          "location": "세광대로 — 사고 현장",
+          "time": "19:55",
+          "text": "차는 섰다. 엔진은 살아있었다.\n\n발목이 욱신거렸다. 급제동 때 페달을 무리하게 밟은 탓인지, 아니면 충격에 발이 걸린 것인지. 딱 걸을 수 없을 만큼은 아니었지만, 분명히 뭔가 삐었다.\n\n범퍼가 찌그러져 있었다.\n\n경찰이 올 때까지 차 옆에 서 있었다. 빗속에서, 발을 살짝 절며.\n\n상급자에게 보고 메시지를 남겼다. 발현 경위와 함께.\n\n오늘 하루가 끝났다.",
+          "isEnd": true,
+          "arrivalFlags": {
+            "day3_injured": true,
+            "day3EventDone": true
+          }
+        }
+      }
+    },
+    "4": {
+      "id": "day-4-night",
+      "title": "귀가 / 심야",
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "자택",
+          "time": "22:30",
+          "text": "집에 돌아왔다.\n\n씻고 누웠는데 잠이 오지 않았다.\n\n오늘 있었던 일들이 머릿속에서 자꾸 맴돌았다. 국장실에서 들은 말. 도깨비불 초롱. 교통방송. 그리고 내가 기억하지 못하는 것들.\n\n손이 저절로 폰으로 갔다.",
+          "choices": [
+            {
+              "label": "그냥 눈을 감는다",
+              "next": "sleep_plain"
+            },
+            {
+              "label": "뭔가 착잡해서 검색을 해본다",
+              "next": "search_1"
+            }
+          ]
+        },
+        "search_1": {
+          "id": "search_1",
+          "location": "자택",
+          "time": "22:43",
+          "text": "검색창을 열었다.\n\n어떤 키워드를 쳐야 할지도 몰랐다. 뭔가 알고 싶은 게 있었는데, 그게 뭔지를 몰랐다.",
+          "textInput": {
+            "placeholder": "검색어를 입력하십시오",
+            "keywords": [
+              "방송국",
+              "gbc"
+            ],
+            "matchScene": "found",
+            "noMatchScene": "fail_1"
+          }
+        },
+        "fail_1": {
+          "id": "fail_1",
+          "location": "자택",
+          "time": "22:46",
+          "text": "변변한 내용은 나오지 않았다.\n\n뻔한 정보들, 광고들, 관련 없는 글들.",
+          "choices": [
+            {
+              "label": "다시 검색한다",
+              "next": "search_2"
+            },
+            {
+              "label": "그냥 끄고 잔다",
+              "next": "sleep_plain"
+            }
+          ]
+        },
+        "search_2": {
+          "id": "search_2",
+          "location": "자택",
+          "time": "22:50",
+          "text": "다시 검색창을 열었다.",
+          "textInput": {
+            "placeholder": "검색어를 입력하십시오",
+            "keywords": [
+              "방송국",
+              "gbc"
+            ],
+            "matchScene": "found",
+            "noMatchScene": "fail_2"
+          }
+        },
+        "fail_2": {
+          "id": "fail_2",
+          "location": "자택",
+          "time": "22:53",
+          "text": "역시 없다.\n\n이상한 건 없었다. 너무 당연하게 아무것도 없었다.",
+          "choices": [
+            {
+              "label": "한 번 더 검색한다",
+              "next": "search_3"
+            },
+            {
+              "label": "그냥 끄고 잔다",
+              "next": "sleep_plain"
+            }
+          ]
+        },
+        "search_3": {
+          "id": "search_3",
+          "location": "자택",
+          "time": "22:57",
+          "text": "마지막으로 한 번만 더.",
+          "textInput": {
+            "placeholder": "검색어를 입력하십시오",
+            "keywords": [
+              "방송국",
+              "gbc"
+            ],
+            "matchScene": "found",
+            "noMatchScene": "fail_3"
+          }
+        },
+        "fail_3": {
+          "id": "fail_3",
+          "location": "자택",
+          "time": "23:01",
+          "text": "역시 민간에 이런 정보가 있을 리 없지.\n\n괜히 찾아봤다는 생각이 들었다. 폰을 엎어두고 천장을 바라봤다.\n\n생각보다 빨리 잠이 들었다.",
+          "isEnd": true,
+          "endLabel": "눈을 감는다",
+          "arrivalFlags": {
+            "day4NightDone": true
+          }
+        },
+        "found": {
+          "id": "found",
+          "location": "자택",
+          "time": "23:05",
+          "text": "검색 결과 맨 위에 이상한 링크가 하나 걸렸다.\n\n도메인이 \".xyz\"로 끝나는 주소. 썸네일 없음. 제목: \"[단독] GBC 방송사고 진실 + 경전방송 내부 폭로 — 관리국 내부 문건 유출\"\n\n손가락이 멈췄다가, 결국 눌렀다.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n☆☆ 무명글터 — 익명 자유게시판 ☆☆\n\n[경고] 이 사이트는 해외 서버를 통해 운영됩니다.\n\n[광고!!!] 당신의 IP가 유출됐습니다!!! 지금 즉시 클릭하세요 → ████████████\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n▶ [속보] GBC 심야상담실 방송사고 실체 & 경전방송 내부자 폭로 (증거 있음, 읽어라)\n\n익명 | 조회 4,291 | 추천 38 | 댓글 117\n\nGBC 심야상담실 3년 전 방송사고 기억하냐?\n\n뉴스에서 잠깐 다뤘다가 싹 묻혔음. 방송사고가 아니었음.\n\n정부 산하에 초자연재난 관리하는 비공개 기관 있음. 내부에서 그냥 '관리국'이라 부름. 이 기관에서 GBC 관련 내부 문건 작성한 거 유출됨. GBS 교통방송도 포함임. 비 오는 날 밤 라디오에서 이상한 소리 들은 사람 있으면 댓글 남겨라. 다들 기억 잃음. 이거 의도적인 거임.\n\n근데 진짜 문제는 따로 있음.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n경전방송 아는 사람?\n\n90년대 중반, 특정 주파수에서만 잡혔음. 공식적으로 존재 부정됨. 방송 내용은 경전 읽어주는 것. 어느 경전인지는 아무도 모름. 목소리는 남자인지 여자인지 구분 안 됨.\n\n들으면 사람이 변함.\n\n가족 이름 잊음.\n\n본인 이름 잊음.\n\n그 다음에 어딘가로 걸어감.\n\n돌아오지 않음.\n\n목적지는 다 달랐음. 공통점은 한 명도 안 돌아왔다는 것.\n\n확인된 실종 건수 내부자 제보 기준 30명 이상. 공식 실종 처리도 안 됨.\n\n지금도 특정 FM 주파수에서 가끔 잡힌다는 제보 있음. 찾으면 안 됨. 진심으로.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n댓글 117개\n\nㅇㅇ : 이거 내 아버지 얘기임... 93년에 아무 말도 없이 사라졌는데 그 전에 라디오 계속 들었던 거 생각남\nㅇㅇ : 개소리 ㅋㅋㅋ\nㅇㅇ : 아니 근데 나 GBS 교통방송 직접 들었음. 비 오는 날 밤에. 근데 아무것도 기억이 안 남. 왜?\nㅇㅇ : 출처 없으면 다 거짓말임\nㅇㅇ : 신고함\nㅇㅇ : 그냥 넘어가지 마세요. 진짜임.\nㅇㅇ : 경전방송 찾다가 뭔가 들었는데 그날 이후로 기억이 군데군데 없어짐. 그냥 지나가지 마라.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n[광고] 충격! 의사들이 숨기는 비밀!! 클릭!\n\n[광고] 해외 직구 초특가!! 지금 바로 →\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n한참을 읽었다.\n\n음모론 사이트였다. 근거라고는 \"내부자 제보\"뿐이고, 댓글 절반은 가짜처럼 보였다.\n\n근데 이상하게 손을 놓을 수가 없었다.\n\n창을 닫고 폰을 내려놓았다. 천장이 어두웠다. 잠이 오지 않았다. 꽤 오랫동안.",
+          "isEnd": true,
+          "endLabel": "착잡하게 눈을 감는다",
+          "arrivalFlags": {
+            "day4NightDone": true,
+            "foundConspiracySite": true
+          }
+        },
+        "sleep_plain": {
+          "id": "sleep_plain",
+          "location": "자택",
+          "time": "23:00",
+          "text": "그냥 자기로 했다.\n\n생각이 많아질수록 잠이 더 안 올 것 같았다. 폰을 뒤집어 놓고 눈을 감았다.\n\n잠은 금방 들었다.",
+          "isEnd": true,
+          "endLabel": "눈을 감는다",
+          "arrivalFlags": {
+            "day4NightDone": true
+          }
+        }
+      }
+    }
+  },
+  "DAY_ARRIVAL_EVENTS": {
+    "4": {
+      "id": "day-4-arrival",
+      "title": "국장실",
+      "isArrivalEvent": true,
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "초자연재난관리국 세광특별시 지부 — 복도",
+          "time": "09:02",
+          "text": "출근해서 자리에 앉자마자 메일을 확인했다.\n\n국장실 명의의 메일. 어젯밤에 도착해 있었다.\n\n국장이 직접 보낸 것은 아니었다. 비서실 발신이었다. 내용은 짧았다. \"오늘 오전 9시, 국장실로 출두하십시오.\"\n\n시계를 봤다. 9시 2분.\n\n서류 가방은 그대로 두고 복도로 나섰다.",
+          "choices": [
+            {
+              "label": "국장실로 향한다",
+              "next": "enter_office"
+            }
+          ]
+        },
+        "enter_office": {
+          "id": "enter_office",
+          "location": "국장실",
+          "time": "09:04",
+          "text": "노크를 두 번 했다.\n\n\"들어오게.\"\n\n국장은 창가 쪽 의자에 앉아 서류를 내려다보고 있었다. 테이블 위에는 어제 사고 보고서가 올려져 있었다.\n\n\"앉아.\"\n\n짧은 지시였다. 나는 맞은편 의자를 당겨 앉았다.",
+          "choices": [
+            {
+              "label": "앉는다",
+              "next": "questioning"
+            }
+          ]
+        },
+        "questioning": {
+          "id": "questioning",
+          "location": "국장실",
+          "time": "09:05",
+          "text": "\"어제 세광대로에서 GBS 교통방송 발현에 노출됐다고 했지.\"\n\n질문이 아니라 확인이었다. 나는 고개를 끄덕였다.\n\n\"차단 장비 설치 이후 발현 조건이 달라졌다는 건 보고에도 나와 있고, 귀하도 경보 문서를 봤을 거야.\"\n\n\"예.\"\n\n\"정신방호 도구는 지참하고 있었나?\"\n\n잠시 침묵이 흘렀다.",
+          "choices": [
+            {
+              "label": "지참하지 않았다고 답한다",
+              "next": "no_item"
+            },
+            {
+              "label": "무엇인지 몰랐다고 답한다",
+              "next": "didnt_know"
+            }
+          ]
+        },
+        "no_item": {
+          "id": "no_item",
+          "location": "국장실",
+          "time": "09:06",
+          "text": "\"지참하지 않았습니다.\"\n\n국장이 서류에서 시선을 들었다.\n\n\"도구가 없었나, 아니면 있는지 몰랐나.\"",
+          "choices": [
+            {
+              "label": "있는지 몰랐다",
+              "next": "didnt_know"
+            },
+            {
+              "label": "신청 방법을 몰랐다",
+              "next": "didnt_know_how"
+            }
+          ]
+        },
+        "didnt_know": {
+          "id": "didnt_know",
+          "location": "국장실",
+          "time": "09:07",
+          "text": "\"있는지 몰랐습니다.\"\n\n국장이 펜을 내려놓았다.\n\n잠시 말이 없었다.\n\n\"...그렇군. 자네 사정을 감안하면 당연한 이야기인데.\"\n\n국장이 낮게 혀를 찼다.\n\n\"다들 그 정도는 알겠거니 하고 넘어갔던 모양이야. 복직 전 오리엔테이션이 부실했다. 그건 우리 쪽 실수이기도 하네.\"",
+          "choices": [
+            {
+              "label": "계속 듣는다",
+              "next": "item_reveal"
+            }
+          ]
+        },
+        "didnt_know_how": {
+          "id": "didnt_know_how",
+          "location": "국장실",
+          "time": "09:07",
+          "text": "\"신청 방법을 몰랐습니다.\"\n\n국장이 펜을 내려놓았다.\n\n\"신청 권한 자체도 부여가 안 돼 있었나?\"\n\n\"예.\"\n\n\"...그렇군.\"\n\n국장이 낮게 혀를 찼다.\n\n\"복직 전 인계 절차가 제대로 진행이 안 됐어. 그건 우리 쪽 실수이기도 하네.\"",
+          "choices": [
+            {
+              "label": "계속 듣는다",
+              "next": "item_reveal"
+            }
+          ]
+        },
+        "item_reveal": {
+          "id": "item_reveal",
+          "location": "국장실",
+          "time": "09:09",
+          "text": "국장이 서랍에서 작은 함 하나를 꺼내 테이블 위에 놓았다.\n\n안에는 호롱 형태의 물건이 들어 있었다. 불빛이 없는데도 안쪽에서 아주 희미하게 일렁이는 것이 보였다.\n\n\"자네 거야. 복직 전 회수해뒀던 거네. 기억은 없겠지.\"\n\n도깨비불 초롱.\n\n장비 목록에서 본 적은 있었다.",
+          "choices": [
+            {
+              "label": "손에 들어본다",
+              "next": "item_received"
+            }
+          ]
+        },
+        "item_received": {
+          "id": "item_received",
+          "location": "국장실",
+          "time": "09:10",
+          "text": "손에 쥐자 생각보다 가벼웠다. 내부에서 미세한 온기가 느껴지는 것도 같았다.\n\n\"자네가 시련 거쳐서 얻은 거 아닌가. 반납 같은 건 없어. 그냥 자네 거야.\"\n\n\"다른 장비는 인트라넷 장비신청에서 신청하게. 오늘부로 권한 열어두지.\"\n\n\"그리고.\"\n\n국장이 덧붙였다.",
+          "choices": [
+            {
+              "label": "계속 듣는다",
+              "next": "warning"
+            }
+          ]
+        },
+        "warning": {
+          "id": "warning",
+          "location": "국장실",
+          "time": "09:11",
+          "text": "\"그거 들고 있는데도 거기에 홀렸다면, 효험이 다한 거야.\"\n\n\"주기적으로 확인하게. 평소엔 안쪽에서 미세하게 반응이 있어야 하는데, 반응이 없다 싶으면 즉시 보고해.\"\n\n\"쯧.\"\n\n국장이 다시 서류로 시선을 돌렸다.\n\n\"이번은 넘어가지. 차는 어떻게 됐나.\"",
+          "choices": [
+            {
+              "label": "경미한 파손이라고 답한다",
+              "next": "end_meeting"
+            }
+          ]
+        },
+        "end_meeting": {
+          "id": "end_meeting",
+          "location": "국장실",
+          "time": "09:13",
+          "text": "\"범퍼 교체 비용은 청구서 올리게. 공무 중 사고로 처리해주지.\"\n\n국장이 서류를 덮으며 말했다.\n\n\"나가봐.\"\n\n그것으로 면담은 끝났다.\n\n나는 도깨비불 초롱을 가방에 넣고 국장실 문을 열었다.\n\n복도로 나오니 아침 햇빛이 창문 너머로 들어와 바닥에 길게 늘어져 있었다.",
+          "isEnd": true,
+          "endLabel": "자리로 돌아간다",
+          "arrivalFlags": {
+            "day4ArrivalDone": true,
+            "equipmentAccessGranted": true,
+            "day4_dobaegiGranted": true
+          }
+        }
+      }
+    }
+  },
+  "DAY_OUTING_EVENTS": {
+    "5": {
+      "id": "day-5-outing",
+      "title": "오후역 현장",
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "오후역 4번출구 일대",
+          "time": "15:10",
+          "text": "오후역 4번출구로 올라서자 지하철 냉기가 한꺼번에 빠져나갔다.\n\n\"방금 백호팀에서 연락 왔어요.\" 벽화가 걸으면서 말했다. \"어제오늘 사이에 4번출구 쪽 제보가 급격히 늘었대요. 아이들이 뭔가를 받았다는 내용으로.\"\n\n출구 왼편 광장 모퉁이에 수레 하나가 세워져 있었다. 알록달록한 현수막. '유쾌연구소'라고 인쇄된 글씨 옆에 웃는 얼굴 그림. 흰 가운을 걸친 사람들 셋이 지나가는 아이들에게 작은 포장지를 건네고 있었다. 뭔가를 나눠받은 아이가 껑충 뛰며 부모 쪽으로 달려갔다.\n\n평화롭게 보였다. 너무 평화롭게.",
+          "choices": [
+            {
+              "label": "가까이 가 본다",
+              "next": "approach"
+            }
+          ]
+        },
+        "approach": {
+          "id": "approach",
+          "location": "오후역 4번출구 일대",
+          "time": "15:12",
+          "text": "수레 쪽으로 천천히 발을 옮겼다.\n\n연구원 중 하나가 고개를 들었다. 시선이 재관국 마크에 닿는 순간 — 그 자리에서 표정이 굳었다. 팔꿈치로 옆 사람을 찌르더니 시선을 아래로 내렸다. 세 사람 모두 장난감 나눠주는 동작을 이어가고 있었지만, 어딘가 박자가 틀린 것 같았다.\n\n거리가 좁아지는데, 맨 오른쪽에 있던 연구원이 먼저 한 발 앞으로 나왔다. 인사를 건네는 것 같은 자연스러운 동작으로.\n\n\"혹시...\" 목소리가 낮았다. \"...재난관리국 분들이시죠?\"\n\n눈이 바쁘게 움직였다. 아이들 쪽, 동료들 쪽, 출구 너머 길 쪽.",
+          "choices": [
+            {
+              "label": "\"그렇다\"",
+              "next": "ask_what"
+            },
+            {
+              "label": "말없이 고개만 끄덕인다",
+              "next": "ask_what"
+            }
+          ]
+        },
+        "ask_what": {
+          "id": "ask_what",
+          "location": "오후역 4번출구 일대",
+          "time": "15:13",
+          "text": "연구원이 작게 한숨을 내쉬었다.\n\n\"...도와주실 수 있으실까요.\" 말이 중간에 끊겼다가 다시 이어졌다. \"저희가 좀. 초자연재난 관련으로 어려움을 겪고 있어서요.\"\n\n주변을 다시 한번 훑었다. 수레 쪽 동료들이 장난감을 나눠주는 척 하면서 이쪽을 흘겨보고 있었다.\n\n\"백일몽 쪽에서...\" 더 낮게. \"위협을 받고 있어서요.\"\n\n\"백일몽?\" 벽화가 옆에서 작게 되뇌었다. \"그 제약회사요?\"\n\n같이 온 다른 청룡1팀 요원이 낮게 말했다. \"이름은 들어봤는데. 그냥 민간 제약사 아닌가요.\"\n\n연구원은 두 사람의 말을 듣는 둥 마는 둥 플레이어만 바라봤다.",
+          "choices": [
+            {
+              "label": "무슨 어려움이냐고 묻는다",
+              "next": "probe"
+            }
+          ]
+        },
+        "probe": {
+          "id": "probe",
+          "location": "오후역 4번출구 일대",
+          "time": "15:15",
+          "text": "연구원이 시선을 잠시 바닥으로 내렸다.\n\n\"저희가 너무 깊이 들어가버려서요.\" 느리게 말했다. \"처음엔 그냥 연구 지원이었는데. 이렇게까지 될 줄은.\"\n\n말이 거기서 멈췄다. 손이 가운 주머니 안에서 움직이는 것 같았다.\n\n\"자세히는... 지금 여기서는.\" 다시 주변을 살폈다. \"나중에 따로 연락 주시면.\"",
+          "choices": [
+            {
+              "label": "은심장을 꺼낸다",
+              "next": "silver_heart_use",
+              "requiredItems": [
+                "eq-020"
+              ]
+            },
+            {
+              "label": "연락처를 받는다",
+              "next": "end_no_reveal"
+            }
+          ]
+        },
+        "silver_heart_use": {
+          "id": "silver_heart_use",
+          "location": "오후역 4번출구 일대",
+          "time": "15:16",
+          "text": "주머니에서 은심장을 꺼냈다.\n\n손바닥에 얹어 내밀었다. 겉보기엔 특별할 것 없는 금속 조각이지만 — 쥔 손이 서서히 따뜻해지는 느낌이 있었다.\n\n연구원이 그걸 내려다봤다. 눈빛이 순간 흔들렸다가 다시 제자리로 돌아오는 것 같았다.\n\n잠시 침묵이 흘렀다.",
+          "choices": [
+            {
+              "label": "기다린다",
+              "next": "silver_heart_reveal"
+            }
+          ]
+        },
+        "silver_heart_reveal": {
+          "id": "silver_heart_reveal",
+          "location": "오후역 4번출구 일대",
+          "time": "15:17",
+          "text": "\"저희가...\" 연구원이 천천히 입을 열었다. \"만들었어요. 어둠을.\"\n\n(이들이 초자연재난을 부르는 방식인 것 같다.)\n\n\"이름에서 — 이름에서 뽑아서. 백일몽이 방법을 알려줬고.\" 시선이 허공 어딘가를 헤맸다. \"많이 모으면 된다고 했어요. 이름을, 이름을 많이 모으면. 그러면 저희가 원하는 걸.\"\n\n말이 흐트러졌다가 다시 이어졌다.\n\n\"그걸. 방송국에 넣었어요. 거기가 좋다고, 백일몽이. 사람이 많이 모이는 데라고.\" 목소리가 낮아졌다. \"어둠이 퍼지면 — 아, 아니. 순서가 달랐나. 아무튼.\"\n\n손이 미세하게 떨렸다.\n\n\"실수였어요. 저희가 원해서 한 게 아니에요. 처음엔 좋은 거라고. 이름이 많이 모이면 다들 행복해진다고 했으니까. 근데 어둠이. 어둠이 아직 거기에 있어요.\"\n\n잠시 말이 끊겼다가.\n\n\"...죄송해요.\"",
+          "choices": [
+            {
+              "label": "장치를 가지고 있냐고 더 캐묻는다",
+              "next": "probe_prototype"
+            },
+            {
+              "label": "...",
+              "next": "end_reveal"
+            }
+          ]
+        },
+        "probe_prototype": {
+          "id": "probe_prototype",
+          "location": "오후역 4번출구 일대",
+          "time": "15:19",
+          "text": "방송국에 설치한 장치 — 그걸 가지고 있냐고 물었다.\n\n연구원이 잠시 멈췄다. 손이 가운 주머니 쪽으로 움직였다가 멈췄다가.\n\n\"...한 개.\" 작게 말했다. \"설치하기 전에 만들었던 거예요. 실험실에 남아있던 거.\"\n\n무언가를 꺼내 건넸다. 손바닥에 올려놓을 수 있을 크기의 작고 각진 금속 상자였다. 표면에 작은 구멍들이 촘촘하게 뚫려 있었다.\n\n\"이게 정확히 뭘 하는 건지는.\" 눈을 피했다. \"저희가 설계한 게 아니라서요. 백일몽에서 도면을 줬고, 저희는 그냥 만들었어요. 한 번도 직접 켜보질 않아서.\"\n\n그 말을 끝으로 시선을 떨궜다.",
+          "arrivalFlags": {
+            "day5_protoGranted": true
+          },
+          "choices": [
+            {
+              "label": "받아든다",
+              "next": "end_reveal"
+            }
+          ]
+        },
+        "end_reveal": {
+          "id": "end_reveal",
+          "location": "오후역 4번출구 일대",
+          "time": "15:22",
+          "text": "한동안 아무도 말이 없었다.\n\n연구원은 장갑을 고쳐 끼고 수레 쪽으로 돌아갔다. 뒤를 돌아보지 않았다.\n\n\"방송국이라면...\" 벽화가 나지막하게 말했다.\n\n\"GBC요.\" 같이 온 요원이 짧게 받았다. \"지난번 사고.\"\n\n\"...네.\"\n\n잠시 침묵.\n\n\"보고해야 할 것 같은데요.\" 벽화가 조용히 말했다.",
+          "arrivalFlags": {
+            "day5OutingDone": true,
+            "day5OutingReveal": true
+          },
+          "choices": [
+            {
+              "label": "...",
+              "next": "reflect_sunset"
+            }
+          ]
+        },
+        "reflect_sunset": {
+          "id": "reflect_sunset",
+          "location": "오후역 인근",
+          "time": "17:40",
+          "text": "걷는 동안 아무도 말이 없었다.\n\n방송국에 설치했다. 그 말이 머릿속에서 계속 맴돌았다. GBC 사고, 경전방송, 지금까지 그 방면으로 나온 사건만 몇 건째인데.\n\n그런데.\n\n발이 멈췄다.\n\n이 부근에 방송국이 없다.\n\n오후역 주변 — 유쾌연구소 수레가 있던 자리에서 여기까지 걸어오는 동안 스친 건물들을 하나씩 떠올려봤다. 편의점, 부동산, 아파트 단지. 방송 관련 시설은 없었다.\n\n거짓말을 한 건가. 아니면 다른 지역을 말한 건가. 아니면 GBC가 아닌 다른 방송국을.\n\n\"팀장님.\" 벽화가 멈춰 서서 말했다. \"저희는 여기서 이만 들어갈게요.\"\n\n어느새 해가 기울어 있었다. 광장 끝에서 주황빛이 길게 드리워지고 있었다. 오후역 표지판에 빛이 번졌다.\n\n걍 집에 가야겠다.",
+          "isEnd": true,
+          "endLabel": "청룡1팀과 인사를 나누고 집으로 향한다"
+        },
+        "end_no_reveal": {
+          "id": "end_no_reveal",
+          "location": "오후역 4번출구 일대",
+          "time": "15:20",
+          "text": "연구원이 주머니에서 명함 한 장을 꺼내 건넸다. 유쾌연구소 로고가 찍힌 종이.\n\n\"나중에 연락 주시면...\" 말하다 말고 고개를 끄덕였다. 말이 거기서 끝이었다.\n\n수레 쪽에 있던 동료 한 명이 손짓을 했다. 연구원이 \"잠깐만요\" 하고 돌아섰다. 셋이서 수레를 접기 시작했다. 이쪽을 보지 않으려는 것처럼.\n\n\"뭔가 더 있는 것 같은데요.\" 벽화가 낮게 말했다.\n\n\"있겠죠.\" 다른 요원이 짧게 답했다.",
+          "arrivalFlags": {
+            "day5OutingDone": true
+          },
+          "choices": [
+            {
+              "label": "...",
+              "next": "farewell"
+            }
+          ]
+        },
+        "farewell": {
+          "id": "farewell",
+          "location": "오후역 인근",
+          "time": "17:40",
+          "text": "걷다 보니 어느새 해가 기울어 있었다.\n\n광장 끝에서 주황빛이 길게 드리워지고 있었다. 오후역 표지판에 빛이 번졌다.\n\n\"팀장님, 저희는 여기서 이만 들어갈게요.\" 벽화가 조심스럽게 말했다.",
+          "isEnd": true,
+          "endLabel": "청룡1팀과 인사를 나누고 집으로 향한다"
+        }
+      }
+    },
+    "6": {
+      "id": "day-6-outing",
+      "title": "현장 출동",
+      "isArrivalEvent": true,
+      "startScene": "start",
+      "scenes": {
+        "start": {
+          "id": "start",
+          "location": "오후로 17-3 — 건물 외부",
+          "time": "10:48",
+          "text": "건물 외관부터 달랐다.\n\n오후역 6번출구에서 걸어서 3분. 주변 건물들과 별로 다를 것 없는 3층짜리 상가 건물이었지만, 가까이 다가가니 분위기가 달랐다. 외벽 타일이 군데군데 떨어져 있었고, 1층 유리창은 신문지로 가려져 있었다.\n\n창파가 건물 앞에 서서 올려다보고 있었다.\n\n\"팀장님, 여기예요.\"",
+          "choices": [
+            {
+              "label": "건물 안으로 들어간다",
+              "next": "enter"
+            }
+          ]
+        },
+        "enter": {
+          "id": "enter",
+          "location": "오후로 17-3 — 1층 로비",
+          "time": "10:51",
+          "text": "안으로 들어서자 먼지 냄새가 코를 찔렀다.\n\n1층은 텅 비어 있었다. 어떤 업종이었는지 짐작도 안 되는 공간이었다. 카운터 같은 구조물만 덩그러니 남아 있었다.\n\n계단을 올라가 3층으로 이동했다.\n\n\"저기요.\"\n\n창파가 조용히 불렀다. 방 안쪽을 가리켰다.",
+          "choices": [
+            {
+              "label": "들여다본다",
+              "next": "youtube_team"
+            }
+          ]
+        },
+        "youtube_team": {
+          "id": "youtube_team",
+          "location": "오후로 17-3 — 3층",
+          "time": "10:53",
+          "text": "변사체는 네 구였다.\n\n그리고 — 장비들이 있었다. 카메라 삼각대. 핀 마이크. 바닥에 나뒹구는 조명 장치. 한쪽에는 접힌 채 쓰러진 반사판.\n\n\"촬영 팀이에요.\" 창파가 낮게 말했다. \"폐가 탐험 유튜브 채널 같아요.\"\n\n오후역 바로 앞 건물이었다. 역에서 걸어서 3분. 인근에 편의점도 있고 식당도 있는 골목이었다.\n\n그 건물 안에서 폐가를 탐험하고 있었다는 것이.\n\n\"역 앞인데...\" 창파가 창문 쪽을 봤다가 다시 시선을 내렸다. \"...이걸 어떻게 몰랐지.\"",
+          "choices": [
+            {
+              "label": "현장을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "investigate_hub": {
+          "id": "investigate_hub",
+          "location": "오후로 17-3 — 3층 현장",
+          "time": "11:05",
+          "text": "방 안을 둘러봤다.\n\n변사체는 네 구. 모두 바닥에 앉은 자세였고 한쪽 방향을 향하고 있었다. 창파는 이미 기록을 시작했다.\n\n어디서부터 살펴볼까.",
+          "choices": [
+            {
+              "label": "창문 쪽을 살핀다",
+              "next": "spot_window",
+              "excludeFlags": [
+                "visitedWindow"
+              ],
+              "excludeWhenFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            },
+            {
+              "label": "입구 쪽을 살핀다",
+              "next": "spot_entrance",
+              "excludeFlags": [
+                "visitedEntrance"
+              ],
+              "excludeWhenFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            },
+            {
+              "label": "선반 쪽을 살핀다",
+              "next": "spot_shelf",
+              "excludeFlags": [
+                "visitedShelf"
+              ],
+              "excludeWhenFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            },
+            {
+              "label": "구석을 살핀다",
+              "next": "spot_corner",
+              "excludeFlags": [
+                "visitedCorner"
+              ],
+              "excludeWhenFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            },
+            {
+              "label": "시신 주변을 살핀다",
+              "next": "spot_transmitter",
+              "excludeFlags": [
+                "visitedTransmitter"
+              ],
+              "excludeWhenFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            },
+            {
+              "label": "이제 철수할 때가 된 것 같다.",
+              "next": "withdrawal_route",
+              "requiredFlagCount": {
+                "flags": [
+                  "visitedWindow",
+                  "visitedEntrance",
+                  "visitedShelf",
+                  "visitedCorner",
+                  "visitedTransmitter"
+                ],
+                "minCount": 3
+              }
+            }
+          ]
+        },
+        "spot_window": {
+          "id": "spot_window",
+          "location": "오후로 17-3 — 3층 창문 쪽",
+          "arrivalFlags": {
+            "visitedWindow": true
+          },
+          "text": "창문은 반쯤 열려 있었다. 누군가 안에서 열어뒀던 것 같았다.\n\n밖으로 오후역 출구가 보였다. 이렇게 역 가까운 건물인데. 창파가 한 말이 다시 걸렸다 — 유튜브 팀조차 '역 앞에 폐가가 있다'는 것 자체를 신기하게 여겼다.\n\n어딘가에서 라디오 소리가 들렸다. 찾을 수 없었다. 건물 밖에서 흘러들어오는 것 같기도 했다.\n\n가까이 가니 창문 아래쪽 벽에 뭔가가 긁혀 있었다. \"이름.\" — 손톱으로 긁은 것 같은 글자였다.",
+          "choices": [
+            {
+              "label": "다른 곳을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "spot_entrance": {
+          "id": "spot_entrance",
+          "location": "오후로 17-3 — 3층 입구",
+          "arrivalFlags": {
+            "visitedEntrance": true
+          },
+          "text": "입구 쪽으로 가봤다.\n\n현관 발매트가 뒤집혀 있었고 신발들이 흩어져 있었다. 슬리퍼, 운동화, 구두. 다른 사람들 것이었다.\n\n문은 안쪽에서 걸려 있었다. 자물쇠가 아니었다. 무거운 물건을 문에 기대어 막아놓은 것 같았는데, 지금은 그 물건이 치워져 있었다. 경찰이 들어오면서 치운 모양이었다.\n\n창파가 발매트의 신발들을 훑으며 말했다. \"피해자 중 한 명이 바닥에서 자다가 죽은 것 같아요. 짐을 여기 다 풀어놨던 거죠.\"",
+          "choices": [
+            {
+              "label": "다른 곳을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "spot_shelf": {
+          "id": "spot_shelf",
+          "location": "오후로 17-3 — 3층 선반 쪽",
+          "arrivalFlags": {
+            "visitedShelf": true
+          },
+          "text": "낡은 목제 선반이 벽에 기대어 있었다. 서류 더미, 빈 캔, 오래된 잡지들이 쌓여 있었다.\n\n그 사이에서 짙은 남색 원단이 눈에 들어왔다.\n\n꺼내봤다. 재관국 야전 재킷이었다.\n\n소매 안쪽 네임 태그. 수놓인 글자.\n\n금강.\n\n먼지가 두껍게 앉아 있었다. 언제 여기 놓인 것인지 알 수 없었다.\n\n창파가 다가와서 재킷을 봤다. 잠깐 조용해졌다.\n\n\"...챙겨 가요.\"",
+          "choices": [
+            {
+              "label": "재킷을 챙겨 다른 곳을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "spot_corner": {
+          "id": "spot_corner",
+          "location": "오후로 17-3 — 3층 구석",
+          "arrivalFlags": {
+            "visitedCorner": true
+          },
+          "text": "방 구석은 먼지가 유독 두꺼웠다. 바닥에 직사각형 자국이 있었다 — 뭔가를 끌어다 놓았다가 치운 흔적.\n\n빈 생수병이 열두 개쯤 모여 있었다. 오래 머물렀던 것 같았다.\n\n그 옆에 종이 한 장이 있었다. 손으로 쓴 것이었다. 글씨체가 달랐다 — 여러 사람이 돌아가며 쓴 것 같았다.\n\n이름을 돌려받겠습니다.\n이름을 돌려받겠습니다.\n이름을 돌려받겠습니다.\n이름을 돌려받겠습니다.\n\n창파가 종이를 비닐백에 담았다. \"수거해요.\"",
+          "choices": [
+            {
+              "label": "다른 곳을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "spot_transmitter": {
+          "id": "spot_transmitter",
+          "location": "오후로 17-3 — 3층 시신 주변",
+          "arrivalFlags": {
+            "visitedTransmitter": true
+          },
+          "text": "변사체들을 가까이서 살폈다. 옷이 더럽고 일부 찢겨 있었다. 신발은 벗겨져 있었다. 손마다 먼지가 쌓여 있었다 — 오래 같은 자세로 있었다는 뜻이었다.\n\n한 사람의 손에 작은 장치가 쥐어져 있었다.\n\n처음에는 오래된 라디오 수신기인 줄 알았다. 자세히 보니 달랐다. 안테나 방향. 단자 구조.\n\n수신기가 아니었다. 송신 장치였다.\n\n그 옆 바닥에 휴대폰 한 대. 화면이 꺼져 있었다. 손에 집어 들었다.",
+          "choices": [
+            {
+              "label": "전원 버튼을 눌러본다",
+              "next": "broadcast_trigger"
+            },
+            {
+              "label": "내려놓고 다른 곳을 살핀다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "withdrawal_route": {
+          "id": "withdrawal_route",
+          "location": "오후로 17-3 — 3층",
+          "text": "",
+          "autoRoute": {
+            "ifFlagSet": "heardBroadcast",
+            "then": "walk_approach",
+            "else": "broadcast_trigger_wait"
+          }
+        },
+        "broadcast_trigger_wait": {
+          "id": "broadcast_trigger_wait",
+          "location": "오후로 17-3 — 3층",
+          "time": "11:44",
+          "text": "창파가 마지막으로 확인했다.\n\n\"팀장님, 저희 먼저 내려갈게요. 잠깐이면 돼요?\"\n\n\"어, 먼저 가라.\"\n\n팀원들이 하나둘 계단으로 내려갔다. 창파도 마지막으로 나갔다.\n\n방에 혼자 남았다.\n\n마지막으로 한 번 더 둘러보려고 했다.",
+          "choices": [
+            {
+              "label": "방을 한 번 더 살핀다",
+              "next": "broadcast_trigger_alone"
+            }
+          ]
+        },
+        "broadcast_trigger_alone": {
+          "id": "broadcast_trigger_alone",
+          "location": "오후로 17-3 — 3층",
+          "time": "11:45",
+          "text": "방이 조용했다.\n\n발소리가 계단 아래로 멀어졌다. 그 소리마저 사라지자 정적이 내려앉았다.\n\n그때였다.\n\n작고 날카로운 소리가 났다. 방 구석 어딘가에서.\n\n지직——",
+          "choices": [
+            {
+              "label": "소리가 나는 곳을 돌아본다",
+              "next": "broadcast_2"
+            }
+          ]
+        },
+        "broadcast_trigger": {
+          "id": "broadcast_trigger",
+          "location": "오후로 17-3 — 3층",
+          "time": "11:45",
+          "arrivalFlags": {
+            "heardBroadcast": true
+          },
+          "text": "화면이 켜졌다.\n\n잠금 화면도 없었다. 곧장 어떤 앱이 실행됐다.\n\n재생 버튼. 파일 이름은 지워져 있었다.\n\n손가락이 화면 위에서 멈췄다.\n\n잠깐, 아주 잠깐 — 그것을 눌렀다.\n\n지직——",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_static"
+            }
+          ]
+        },
+        "broadcast_static": {
+          "id": "broadcast_static",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "text": "직...지직...",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_1"
+            }
+          ]
+        },
+        "broadcast_1": {
+          "id": "broadcast_1",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "text": "성스러운심연이열리니모든것이썩어문드러진■▮▓덩어리가되어그분의자궁으로회귀하리라우리는태어난것이아니라▮▓▒░된것이며우리의살점은그분의▮▓░를달래기위한지연된식사일뿐이다눈을파내라그것이보지못할지옥을보게하리니귀를막아라그것이들리지않을비명을듣게하리니모든것은■▮▓▒░▮■하고단하나의명령만이남았으니그것은바로■▮▓▒░의심은죄악이며고통은성찬이니라다리가잘려나간자들은기어서라도성소로오라그피로바닥을적시고그비명으로벽을장식하라시간은거꾸로흐르며우리는태아의상태로돌아가그분의▓▒░속에서영원히■▮▓될것이니오오어찌이리도아름다운종말인가심장이멈추기직전의그짧은공포야말로우리가신께바칠수있는유일하고도순수한기도문임을깨달으라죽어라죽어서그분의일부분이되어라썩어문드러져라나의형제여나의신이여우리의▮▓▒░은지금이순간에도맥박치고있으니더이상빛을갈구하지말라어둠이야말로우리의진정한자궁이며우리는모두■▮▓의아래에서함께비명지르리라아멘",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_route"
+            }
+          ]
+        },
+        "broadcast_route": {
+          "id": "broadcast_route",
+          "location": "오후로 17-3 — 3층",
+          "text": "",
+          "autoRoute": {
+            "ifHasItems": [
+              "eq-016"
+            ],
+            "then": "broadcast_interrupted",
+            "else": "broadcast_2"
+          }
+        },
+        "broadcast_interrupted": {
+          "id": "broadcast_interrupted",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "text": "돌아오겠습니다돌아오겠습니다돌아오■▮▓그분의곁으로▮▓■돌아오겠습니다돌아오겠습니다돌아오겠습니다■▮바치겠습니다▮■▓바치겠습니다▓▒바치겠습니다▒░바치겠습니다░▒바치겠습니다▮■▓바치겠습니다돌아오겠습니다돌아오겠습니다▮▓▒░돌아오겠습니다░▒▓▮바치겠습니다■▮▓바치겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_interrupted_wake"
+            }
+          ]
+        },
+        "broadcast_interrupted_wake": {
+          "id": "broadcast_interrupted_wake",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "blackoutDim": true,
+          "text": "헉 —\n\n내가 무슨 짓을.",
+          "choices": [
+            {
+              "label": "...",
+              "next": "after_protected"
+            }
+          ]
+        },
+        "after_protected": {
+          "id": "after_protected",
+          "location": "오후로 17-3 — 3층",
+          "time": "11:46",
+          "text": "방이 조용했다.\n\n방송이 끊겼다. 아니면 내가 끊은 건지도 몰랐다. 잠깐 중얼거리고 있었다는 것만 어렴풋이 알았다.\n\n얼른 계단으로 나갔다.\n\n손이 조금 떨렸다.",
+          "choices": [
+            {
+              "label": "돌아간다",
+              "next": "investigate_hub"
+            }
+          ]
+        },
+        "broadcast_2": {
+          "id": "broadcast_2",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "text": "돌아오십시오그분의곁으로돌아오십시오그분은기다리고계십니다얼마나오래기다리셨는지아십니까당신이오기를기다리며그분은얼마나오래어둠속에홀로계셨는지아십니까당신때문입니다당신이아직돌아오지않았기때문입니다당신이아직죽지않았기때문입니다그분을위해죽으십시오그것이옳습니다그것이당연합니다두려워하지마십시오죽음은끝이아닙니다그분안에서새로운이름이됩니다그분안에서영원히기억됩니다남겨지는자는잊혀집니다바치는자는영원합니다당신의몸은당신의것이아닙니다당신의■■■은처음부터그분의것이었습니다이제돌려드리십시오당신이살아있는매순간그분께빚지고있습니다그분이당신에게■■■을주셨습니다그분이당신에게이름을주셨습니다이름이있는것은존재합니다이름이없는것은존재하지않습니다그분이당신의이름을거두시면당신은아무것도아닙니다두렵지않으십니까그분을위해죽으십시오그러면당신의이름은영원합니다그분이당신을기억하십니다그분이당신을품으십니다■■■은달콤합니다두려워할것없습니다그분을위해기꺼이죽으십시오그것이당신이이자리에있는이유입니다그분이당신을이곳으로이끄신것입니다우연이아닙니다그분을위해죽으십시오지금바로그분의곁으로돌아오십시오당신의■■■을바치십시오당신의피를바치십시오그분이받으십니다그분이기뻐하십니다■■■이당신을보고계십니다지금이순간에도당신이이것을듣는동안에도당신이눈을감는동안에도그분은당신을보고계십니다알고계십니다느끼고계십니다당신이그분을부정해도그분은당신을아십니다당신의■■■이그분을향해울부짖고있습니다들리지않으십니까들립니다반드시들립니다그래서지금여기계신것입니다이미늦지않았습니다돌아오십시오그분을위해죽으십시오",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_3"
+            }
+          ]
+        },
+        "broadcast_3": {
+          "id": "broadcast_3",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "text": "돌아오겠습니다돌아오겠습니다그분의곁으로▮▓▒░돌아오겠습니다░▒▓▮죽겠습니다그분을위해죽겠습니다▮▓▒░바치겠습니다▓▒░바치겠습니다■▮▓바치겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다▮▓▒░돌아오겠습니다░▒▓▮돌아오겠습니다죽겠습니다■▮▓▒░죽겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다돌아오겠습니다▮▓▒░돌아오겠습니다▮▓▒돌아오겠습니다█████████████████████████",
+          "choices": [
+            {
+              "label": "...",
+              "next": "broadcast_3_split"
+            }
+          ]
+        },
+        "broadcast_3_split": {
+          "id": "broadcast_3_split",
+          "location": "오후로 17-3 — 3층",
+          "text": "",
+          "autoRoute": {
+            "ifFlagSet": "heardBroadcast",
+            "then": "trance_intervention",
+            "else": "귀가_blank"
+          }
+        },
+        "귀가_blank": {
+          "id": "귀가_blank",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 2000,
+          "text": "",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_footstep1"
+            }
+          ]
+        },
+        "귀가_footstep1": {
+          "id": "귀가_footstep1",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "slowTyping": true,
+          "text": "저벅\n저벅\n저벅\n저벅\n저벅\n저벅\n저벅",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_footstep2"
+            }
+          ]
+        },
+        "귀가_footstep2": {
+          "id": "귀가_footstep2",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "text": "저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅\n저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅저벅",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_blank2"
+            }
+          ]
+        },
+        "귀가_blank2": {
+          "id": "귀가_blank2",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 1500,
+          "text": "",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_station"
+            }
+          ]
+        },
+        "walk_approach": {
+          "id": "walk_approach",
+          "location": "오후로 — 귀가 중",
+          "text": "",
+          "walkMode": {
+            "accumulate": true,
+            "steps": [
+              {
+                "words": [
+                  {
+                    "text": "오후로 17-3.",
+                    "style": "location"
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "꽃다발."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "낡은 간판."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "그림자."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "혈흔."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "고양이."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "바람."
+                  },
+                  {
+                    "text": "걷는다.",
+                    "style": "action"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "방송국.",
+                    "style": "action"
+                  }
+                ]
+              }
+            ],
+            "next": "귀가_station"
+          }
+        },
+        "귀가_station": {
+          "id": "귀가_station",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 3000,
+          "textStyle": "title",
+          "text": "방송국",
+          "choices": [
+            {
+              "label": "",
+              "next": "끼익"
+            }
+          ]
+        },
+        "끼익": {
+          "id": "끼익",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 2000,
+          "textStyle": "squeak",
+          "text": "끼익",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_wake_blank"
+            }
+          ]
+        },
+        "귀가_wake_blank": {
+          "id": "귀가_wake_blank",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 2000,
+          "text": "",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_wake_text_1"
+            }
+          ]
+        },
+        "귀가_wake_text_1": {
+          "id": "귀가_wake_text_1",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 1800,
+          "textStyle": "corrupted",
+          "text": "저기...",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_wake_text_2"
+            }
+          ]
+        },
+        "귀가_wake_text_2": {
+          "id": "귀가_wake_text_2",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "slowTyping": true,
+          "autoNextDelay": 2200,
+          "textStyle": "corrupted",
+          "text": "하■▮▓...\n▓산......",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_wake_text_3"
+            }
+          ]
+        },
+        "귀가_wake_text_3": {
+          "id": "귀가_wake_text_3",
+          "location": "",
+          "isBlackout": true,
+          "blackoutDim": true,
+          "autoNext": true,
+          "autoNextDelay": 1800,
+          "textStyle": "corrupted",
+          "text": "와 줬구나?",
+          "choices": [
+            {
+              "label": "",
+              "next": "귀가_end_flicker"
+            }
+          ]
+        },
+        "귀가_end_flicker": {
+          "id": "귀가_end_flicker",
+          "location": "",
+          "isBlackout": true,
+          "screenFlicker": true,
+          "autoNext": true,
+          "autoNextDelay": 4000,
+          "text": "",
+          "isEnd": true,
+          "arrivalFlags": {
+            "day6OutingDone": true,
+            "day6BroadcastAffected": true,
+            "day6GlitchMode": true
+          }
+        },
+        "trance_intervention": {
+          "id": "trance_intervention",
+          "location": "오후로 17-3 — 3층",
+          "isBlackout": true,
+          "autoNext": true,
+          "blackoutDim": true,
+          "text": "...님\n\n\n팀장님\n\n\n팀장님!\n\n\n...괜찮으세요?",
+          "choices": [
+            {
+              "label": "...",
+              "next": "after_trance"
+            }
+          ]
+        },
+        "after_trance": {
+          "id": "after_trance",
+          "location": "오후로 17-3 — 3층",
+          "time": "11:52",
+          "text": "창파가 내 앞에 있었다.\n\n\"팀장님, 팀장님 계속 뭔가 중얼거리고 계셨어요. 제가 불러도 안 들리시는 것 같아서.\"\n\n대답하지 못했다.\n\n\"...제 목소리가 그 경전을 따라 읊고 있었나요.\"\n\n창파가 잠깐 말을 멈췄다가 고개를 끄덕였다.\n\n기억이 없었다.",
+          "arrivalFlags": {
+            "day6BroadcastAffected": true
+          },
+          "choices": [
+            {
+              "label": "돌아간다",
+              "next": "investigate_hub"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
