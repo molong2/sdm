@@ -6,6 +6,8 @@ import type { Document, ClassificationLevel } from '../../types';
 interface ArchivePanelProps {
   /** 메신저 문서 링크 등으로 특정 문서를 바로 열어야 할 때 지정 */
   targetDocId?: string;
+  /** 문서 상세에서 뒤로 나갈 때 호출 (docId 전달) */
+  onDocClose?: (docId: string) => void;
 }
 
 // ============================================================
@@ -16,7 +18,7 @@ const CLASS_LABEL: Record<ClassificationLevel, string> = {
   public:       '일반',
   internal:     '내부',
   confidential: '대외비',
-  secret:       '비밀',
+  secret:       '특급비밀',
 };
 
 // 규정·매뉴얼·지침은 보고서류보다 위에 정렬
@@ -28,7 +30,7 @@ function docSortKey(doc: Document): string {
   return tier + invertedDate;
 }
 
-export function ArchivePanel({ targetDocId }: ArchivePanelProps) {
+export function ArchivePanel({ targetDocId, onDocClose }: ArchivePanelProps) {
   const { gameState, isVisible, markDocumentRead, reportDocument, setFlag } = useGame();
   const [selected, setSelected] = useState<Document | null>(null);
   const [filterCat, setFilterCat] = useState('전체');
@@ -47,6 +49,9 @@ export function ArchivePanel({ targetDocId }: ArchivePanelProps) {
     if (isFirstRead && doc.onReadFlags) {
       Object.entries(doc.onReadFlags).forEach(([k, v]) => setFlag(k, v));
     }
+    if (gameState.flags['completedFirstEnding'] && gameState.currentDay >= 2 && !gameState.flags['ng2CaseRead']) {
+      setFlag('ng2CaseRead', true);
+    }
   }
 
   // 신고 후 문서를 닫고 나가는 시점에 onReportFlags를 적용한다.
@@ -55,7 +60,9 @@ export function ArchivePanel({ targetDocId }: ArchivePanelProps) {
     if (selected?.onReportFlags && gameState.reportedDocuments.includes(selected.id)) {
       Object.entries(selected.onReportFlags).forEach(([k, v]) => setFlag(k, v));
     }
+    const closedId = selected?.id;
     setSelected(null);
+    if (closedId) onDocClose?.(closedId);
   }
 
   // 메신저 등에서 문서 링크로 진입한 경우 자동으로 해당 문서를 연다.
@@ -104,9 +111,15 @@ export function ArchivePanel({ targetDocId }: ArchivePanelProps) {
           <div className="det-content">{selected.content}</div>
           {selected.corruptedLines && selected.corruptedLines.length > 0 && (
             <div className="doc-corrupted-block">
-              {selected.corruptedLines.map((line, i) => (
-                <div key={i} className="doc-corrupted-line">{line}</div>
-              ))}
+              {selected.corruptedLines.map((line, i) => {
+                const text = typeof line === 'string' ? line : line.text;
+                const isGlitch = typeof line !== 'string';
+                return (
+                  <div key={i} className={`doc-corrupted-line${isGlitch ? ' doc-corrupted-line--glitch' : ''}`}>
+                    {text}
+                  </div>
+                );
+              })}
             </div>
           )}
           {selected.tags && selected.tags.length > 0 && (

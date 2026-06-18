@@ -79,6 +79,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['readDay2Mail'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -86,11 +87,11 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '회색 건물(1087PSYA.2021.마04) 관련해서 기억소거 대상자가 많아져서 연락드려요.',
+        content: '회색 건물 재난 관련해서 기억소거 대상자가 많아져서 연락드려요.',
       },
       {
         role: 'npc',
-        content: '최근 그 건물에 들어갔다 나온 민간인 신고가 늘었는데, 다들 불안감·이명·반복적인 꿈 회상 같은 인지오염 증상을 호소하고 있어요. 평가 결과 기억소거 대상으로 판정된 분들이고요.',
+        content: '최근 꿈 속에서 재난을 조우했다는 민간인 신고가 늘었는데, 공통적으로 미약한 인지오염 증상을 호소하고 있어요. 평가 결과 기억소거 대상으로 판정된 분들이고요.',
       },
       {
         role: 'npc',
@@ -111,6 +112,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['mwOutcomePerfect'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -118,11 +120,11 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '세 분 다 완벽하게 처리됐다고요? 진짜 감사해요. 덕분에 한숨 돌렸어요.',
+        content: '세 분 다 완벽하게 처리됐더라고요? 진짜 감사해요. 덕분에 한숨 돌렸어요.',
       },
       {
         role: 'npc',
-        content: '오늘 진짜 큰 도움 받았습니다. 다음에 제가 커피라도 한 잔 사야겠네요!',
+        content: '오늘 정말 큰 도움 받았습니다. 다음에 제가 커피라도 한 잔 사야겠네요!',
       },
     ],
   },
@@ -132,6 +134,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['mwOutcomePartial'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -139,11 +142,15 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '한두 분 정도는 잘 안 됐다고요? 음, 그럴 수 있죠. 처음부터 다 잘 되면 그게 더 이상하죠.',
+        content: '몇 분은 잘 안 됐다더라고요? 음, 그럴 수 있죠. 처음부터 다 잘 되면 그게 더 이상하죠.',
       },
       {
         role: 'npc',
-        content: '남은 분들은 저희 쪽에서 마무리할게요. 신경 쓰지 마세요. 오늘 도와주신 것만으로도 충분해요.',
+        content: '하긴, 팀장님은 아직 상황이 그러시니까...',
+      },
+      {
+        role: 'npc',
+        content: '남은 분들은 저희 쪽에서 마무리할게요. 신경 쓰지 마세요. 힘드실 텐데 와 주신 것만으로도 감사해요.',
       },
     ],
   },
@@ -153,6 +160,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['mwOutcomeAllFail'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -160,12 +168,16 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '세 분 다 잘 안 되셨다고 들었어요.',
+        content: '세 분 다 기억 소거 실패했다고 들었습니다.',
       },
       {
         role: 'npc',
         content: '기억소거 집행 세부 지침(재관내규 제2020-12호) 한 번 다시 확인해보시는 게 좋을 것 같아요.',
         docLink: { docId: 'doc-009', label: '기억소거 집행 세부 지침 (재관내규 제2020-12호)' },
+      },
+      {
+        role: 'npc',
+        content: '기억 소거 실패한 분들은 저희가 다시 잘 소거해서 귀가 조치 하겠습니다.',
       },
       {
         role: 'npc',
@@ -179,6 +191,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['mwOutcomePerfectBreakdown'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -186,11 +199,11 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '기억소거는 셋 다 성공한 모양인데요...',
+        content: '기억 소거는 셋 다 성공한 모양인데요...',
       },
       {
         role: 'npc',
-        content: '그런데 한 분 오염이 더 심해졌다는 보고가 같이 들어와서요. 혹시 무슨 일이 있었는지 여쭤봐도 될까요?',
+        content: '이상하게 한 분 오염이 더 심해졌다는 보고가 같이 들어와서요. 혹시 무슨 일이 있었는지 여쭤봐도 될까요?',
       },
       {
         role: 'player',
@@ -207,6 +220,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['deniedWomanBreakdown'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -220,6 +234,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '황운',
     unlockDay: 2,
     requiredFlags: ['promisedReportOnBreakdown'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -233,6 +248,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '창파',
     unlockDay: 3,
     requiredFlags: ['viewedSuicideBroadcastCase'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -259,7 +275,7 @@ export const messengerChats: MessengerChat[] = [
       },
       {
         role: 'npc',
-        content: '저희 팀에서 정리해서 보고서 자료실에 올려놨어요. 한번 보세요.',
+        content: '석류랑 정리해서 보고서 자료실에 올려놨어요. 한번 보세요.',
         docLink: { docId: 'doc-004', label: '세광대로 일대 교통사고 현황 및 블랙박스 음성 분석 보고' },
       },
     ],
@@ -272,37 +288,42 @@ export const messengerChats: MessengerChat[] = [
     npcName: '창파',
     unlockDay: 6,
     requiredFlags: ['readDay6Case'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       // step 0
-      { role: 'npc', content: '팀장님 지금 괜찮으세요? 사건 올라온 거 보셨어요?' },
+      { role: 'npc', content: '팀장님 지금 시간 괜찮으세요? 사건 올라온 거 보셨죠?' },
       // step 1
       {
         role: 'player',
         choices: [
-          { text: '방금 봤다' },
-          { text: '응, 봤어' },
+          { text: '방금 봤다만.' },
+          { text: '그래.' },
         ],
       },
       // step 2
-      { role: 'npc', content: '청룡팀이 새벽부터 유사 현장 두 곳 먼저 나갔고 오늘 아침에 또 두 곳 더 올라왔대요. 청룡2팀이랑 주작1팀도 지금 나갔고요. 저희도 나가야 할 것 같아서요.' },
+      { role: 'npc', content: '청룡팀이 새벽부터 유사 현장 두 곳 먼저 나갔고 오늘 아침에 또 두 곳 더 올라왔대요. 청룡2팀이랑 주작1팀도 지금 나간대요.' },
+      {
+        role: 'npc',
+        content: '저희도 슬슬 출발해야 할 것 같아요.',
+      },
       // step 3
       {
         role: 'player',
         choices: [
-          { text: '같이 가자' },
-          { text: '어디로 가야 하는 거야?' },
+          { text: '지금 가지.' },
+          { text: '어디로 가면 되지?' },
         ],
       },
       // step 4 — "어디로?" 선택 시만
       {
         role: 'npc',
-        content: '저도 정확한 위치는 아직 전달 못 받았어요. 일단 신청 먼저 넣으시면 바로 연락 온다고 하더라고요.',
+        content: '아마 보고서에 써 있는 데로요? 다른 현장은 지금 인원 다 배정 돼 있을 거예요.',
         showIfChoice: { step: 3, choice: 1 },
       },
       // step 5 — 항상 (setFlags로 외근 승인 활성화)
       {
         role: 'npc',
-        content: '외근 신청 사유는 초자연재난으로 넣어주시면 돼요. 기다릴게요.',
+        content: '외근 신청 사유는 초자연재난으로 넣어주시면 돼요. 먼저 가 있을게요.',
         setFlags: { day6OutingEnabled: true },
       },
     ],
@@ -315,6 +336,7 @@ export const messengerChats: MessengerChat[] = [
     npcName: '벽화',
     unlockDay: 5,
     requiredFlags: ['readYuriLab'],
+    excludeFlags: ['completedFirstEnding'],
     script: [
       {
         role: 'npc',
@@ -324,21 +346,21 @@ export const messengerChats: MessengerChat[] = [
       {
         role: 'player',
         choices: [
-          { text: '청룡팀 팀장은 어디 갔는데?' },
-          { text: '원래 우리 관할이 아니잖아.' },
-          { text: '뭐, 같이 가지.' },
+          { text: '청룡팀 팀장은 어디 가고?' },
+          { text: '현무팀의 관할이 아니다.' },
+          { text: '같이 가지.' },
         ],
       },
       // step 2 — 팀장 어디 갔냐 물었을 때
       {
         role: 'npc',
-        content: '에ㅎㅎ 태산 팀장님이 저희 팀 정신적 팀장님이신 거 모르셨어요? 그러니까 같이 가주셔야죠!',
+        content: '에이ㅎㅎ 태산 팀장님이 저희 팀 정신적 팀장님이신 거 모르셨어요? 그러니까 같이 가주셔야죠!',
         showIfChoice: { step: 1, choice: 0 },
       },
       // step 3 — 관할 아니다 했을 때
       {
         role: 'npc',
-        content: '에이~ 기억도 아직 다 돌아오신 것도 아니잖아요. 이런 현장도 같이 다니면서 보시는 게 낫지 않을까요ㅎㅎ',
+        content: '에이~ 아직 기억 다 돌아오신 것도 아니잖아요. 다양한 현장을 체험해 보시는 게 낫지 않을까요ㅎㅎ',
         showIfChoice: { step: 1, choice: 1 },
       },
       // step 4 — 팀장/관할 답변 이후 재선택 (choice 2 경로는 이 스텝 스킵)
@@ -350,7 +372,7 @@ export const messengerChats: MessengerChat[] = [
       // step 5 — "같이 가지"를 처음부터 고른 경우 감사 인사
       {
         role: 'npc',
-        content: '진짜요?? 감사합니다!!',
+        content: '진짜요?? 감사합니다!!! 태산 팀장님 최고!',
         showIfChoice: { step: 1, choice: 2 },
       },
       // step 6 — 팀장/관할 경로에서 "같이 가지" 누른 경우 감사 인사
@@ -362,8 +384,71 @@ export const messengerChats: MessengerChat[] = [
       // step 7 — 외근 안내 (모든 경로 공통)
       {
         role: 'npc',
-        content: '아 외근 신청 사유 칸에 \'청룡1팀 조사 보조\' 적으시면 돼요~ 보고는 제가 올려둘게요!',
+        content: '아!! 외근 신청 사유 칸에 \'청룡1팀 조사 보조\' 적으시면 돼요~ 보고는 제가 올려둘게요!',
         setFlags: { day5OutingEnabled: true },
+      },
+    ],
+  },
+
+  // ── 2회차 Day 4: 금양(주작1팀장) — 잔소리 후속 메시지 ──────────────────
+  {
+    id: 'chat-kumyang-ng-day4',
+    npcId: 'emp-022',
+    npcName: '금양',
+    unlockDay: 4,
+    requiredFlags: ['completedFirstEnding', 'ng3Day4IntroDone'],
+    script: [
+      {
+        role: 'npc',
+        content: '아까 한 말 흘려듣지 마요.',
+        setFlags: { ng4GolimMessengerRead: true },
+      },
+      {
+        role: 'npc',
+        content: '무리하면 안 됩니다. 지금 그럴 상황 아닌 거 아시잖아요.',
+      },
+      {
+        role: 'player',
+        choices: [
+          { text: '알겠습니다.' },
+          { text: '신경 써 주셔서 감사합니다.' },
+        ],
+      },
+      {
+        role: 'npc',
+        content: '그래요. 그리고 오늘 자료보관소에 갱신 내역 있어요. GBS 쪽 건데 확인해 두세요.',
+        docLink: { docId: 'doc-ng-gbs-emergency', label: '[긴급] GBS 교통상황 방송 — 갱신' },
+      },
+    ],
+  },
+
+  // ── 2회차 Day 2: 명경(백호1팀장) — 봉쇄의식 문서 관련 면담 요청 ──────────
+  {
+    id: 'chat-myeonggyeong-ng-day2',
+    npcId: 'emp-002',
+    npcName: '명경',
+    unlockDay: 2,
+    requiredFlags: ['completedFirstEnding', 'ng2CaseRead'],
+    excludeFlags: ['ng2BaekhoEventDone'],
+    script: [
+      {
+        role: 'npc',
+        content: '태산 팀장님, 백호1팀 명경입니다.',
+      },
+      {
+        role: 'npc',
+        content: '지난 방송국 봉쇄의식 관련 문서를 검토하고 있는데 봉쇄 과정 중 이해가 안 가는 대목이 있어서요.',
+      },
+      {
+        role: 'npc',
+        content: '기억 없으신 건 아는데... 그래도 혹시 뭔가 떠올릴 수 있는 게 있을까 싶어서 연락 드려요. 잠깐 시간 되시면 올라와 주실 수 있으신가요?',
+      },
+      {
+        role: 'player',
+        choices: [
+          { text: '올라가겠다.', setFlags: { ng2BaekhoCallAccepted: true, respondedTeamChat: true } },
+          { text: '지금은 어렵다.', setFlags: { respondedTeamChat: true } },
+        ],
       },
     ],
   },

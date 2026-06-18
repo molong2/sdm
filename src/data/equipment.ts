@@ -33,5 +33,4 @@ export const equipmentItems: EquipmentItem[] = [
   { id: 'eq-020', name: '은심장',          category: '의식·특수',   effect: '이타적 행동 누적치에 비례한 대인 신뢰 유도', condition: '대여 규정에 따른 별도 승인 필요' },
   { id: 'eq-021', name: '옥패',            category: '의식·특수',   effect: '일부 현장 화폐 대용 사용 가능',             condition: '없음' },
   { id: 'eq-022', name: '액운 삼키미',     category: '현장정리',    effect: '현장 잔존 기운 제거',                      condition: '현장정리반 한정' },
-  { id: 'eq-023', name: '송출기 프로토타입', category: '의식·특수',  effect: '미상 목적의 소형 신호 송출 장치 원형. 용도 및 작동 원리 불명. 초자연재난과의 연관성 분석 필요. 현재 비활성 상태.', condition: '현장 수거품. 분석 전 임의 작동 금지' },
 ];

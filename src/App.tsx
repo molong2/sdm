@@ -16,6 +16,7 @@ import { PasswordWarningModal }  from './components/PasswordWarningModal';
 import { EventScreen }           from './components/EventScreen';
 import { OutingRequestModal }    from './components/OutingRequestModal';
 import { MessengerToast }        from './components/messenger/MessengerToast';
+import { ArchiveToast }          from './components/panels/ArchiveToast';
 import { MessengerWindow }       from './components/messenger/MessengerWindow';
 import { TeamChatToast }         from './components/messenger/TeamChatToast';
 import { TeamChatWindow }        from './components/messenger/TeamChatWindow';
@@ -24,7 +25,7 @@ import type { EndingType }       from './components/EndingScreen';
 import { MemoryWipeMinigame }    from './components/MemoryWipeMinigame';
 import { GlitchCursorNav }      from './components/GlitchCursorNav';
 import { cases }                from './data/cases';
-import { DAY_EVENTS, DAY_ARRIVAL_EVENTS, DAY_OUTING_EVENTS } from './data/events';
+import { DAY_EVENTS, DAY_ARRIVAL_EVENTS, DAY_OUTING_EVENTS, NG_DAY1_DIRECTOR_EVENT, NG_DAY1_OUTING_EVENT, NG_DAY2_OUTING_EVENT, NG_DAY2_BAEKHO_INTRO_EVENT, NG_DAY2_BAEKHO_MEMORIES_EVENT, NG_DAY4_INTRO_EVENT, NG_DAY4_OUTING_EVENT } from './data/events';
 import { groupChats }           from './data/groupChats';
 import { useGame } from './context/GameContext';
 import { getDateForDay } from './utils/date';
@@ -69,8 +70,10 @@ export function App() {
   const [dismissedChats, setDismissedChats] = useState<Set<string>>(new Set());
   const [openGroupChatId, setOpenGroupChatId] = useState<string | null>(null);
   const [dismissedGroupChats, setDismissedGroupChats] = useState<Set<string>>(new Set());
+  const [dismissedDocToasts, setDismissedDocToasts] = useState<Set<string>>(new Set());
   const [activeEnding, setActiveEnding] = useState<EndingType | null>(null);
   const [memoryWipeActive, setMemoryWipeActive] = useState(false);
+  const [memoryRecoveryActive, setMemoryRecoveryActive] = useState(false);
   const [isGlitching, setIsGlitching] = useState(false);
   const [glitchNavDone, setGlitchNavDone] = useState(false);
   const [gameOverActive, setGameOverActive] = useState(false);
@@ -79,8 +82,8 @@ export function App() {
 
   const {
     gameState, clockOut, setFlag, switchAccount, canClockOut,
-    isVisible, getEffectiveStatus, acknowledgeAlert, resetToNewGamePlus,
-    advanceChatNpcStep, addToInventory,
+    isVisible, getEffectiveStatus, updateCaseStatus, acknowledgeAlert, resetToNewGamePlus,
+    advanceChatNpcStep, addToInventory, getMailReply,
   } = useGame();
 
   // 주소창 경로를 정부 인트라넷처럼 표시 (History API — 실제 라우팅 없음)
@@ -109,6 +112,48 @@ export function App() {
       setMemoryWipeActive(true);
     }
   }, [gameState.flags, loginMode, memoryWipeActive]);
+
+  // 2회차 백호팀 면담 인트로 트리거 (명경 메신저에서 수락 시)
+  useEffect(() => {
+    if (
+      loginMode === 'in' && !activeEvent &&
+      gameState.flags['ng2BaekhoCallAccepted'] && !gameState.flags['ng2BaekhoIntroADone']
+    ) {
+      setActiveEvent(NG_DAY2_BAEKHO_INTRO_EVENT);
+    }
+  }, [gameState.flags, loginMode, activeEvent]);
+
+  // 2회차 백호팀 인트로 완료 → 기억소거 미니게임 (복원 모드)
+  useEffect(() => {
+    if (
+      loginMode === 'in' && !activeEvent && !memoryRecoveryActive &&
+      gameState.flags['ng2BaekhoCallAccepted'] &&
+      gameState.flags['ng2BaekhoIntroADone'] && !gameState.flags['ng2RecoveryDone']
+    ) {
+      setMemoryRecoveryActive(true);
+    }
+  }, [gameState.flags, loginMode, activeEvent, memoryRecoveryActive]);
+
+  // 2회차 기억소거 미니게임 완료 → 기억 복원 결과 이벤트
+  useEffect(() => {
+    if (
+      loginMode === 'in' && !activeEvent &&
+      gameState.flags['ng2BaekhoCallAccepted'] &&
+      gameState.flags['ng2RecoveryDone'] && !gameState.flags['ng2BaekhoEventDone']
+    ) {
+      setActiveEvent(NG_DAY2_BAEKHO_MEMORIES_EVENT);
+    }
+  }, [gameState.flags, loginMode, activeEvent]);
+
+  // 2회차 Day 4: 금양 메신저 확인 → case-003 긴급호출 상태로 즉시 전환
+  useEffect(() => {
+    if (
+      gameState.flags['ng4GolimMessengerRead'] &&
+      getEffectiveStatus('case-003', '진행중') !== '긴급호출'
+    ) {
+      updateCaseStatus('case-003', '긴급호출', '방송국 부지 인근 대형 추돌사고 발현 확인 (4일차)');
+    }
+  }, [gameState.flags['ng4GolimMessengerRead']]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 일차 전환 또는 이벤트 전환 시 열려있던 메신저·단체채팅창 자동 닫기
   const prevDayRef = useRef(gameState.currentDay);
@@ -172,6 +217,11 @@ export function App() {
     }
   }, [gameState.submittedForms, gameState.currentDay]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  function handleMemoryRecoveryComplete() {
+    setFlag('ng2RecoveryDone', true);
+    setMemoryRecoveryActive(false);
+  }
+
   function handleMemoryWipeComplete(successCount: number, womanBreakdownTriggered: boolean) {
     if (successCount === 3) {
       setFlag(womanBreakdownTriggered ? 'mwOutcomePerfectBreakdown' : 'mwOutcomePerfect', true);
@@ -197,6 +247,11 @@ export function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
+  // 사건 ID → 연결된 긴급호출 아카이브 문서 ID (배너 클릭 시 바로 열기)
+  const EMERGENCY_DOC_MAP: Record<string, string> = {
+    'case-003': 'doc-ng-gbs-emergency',
+  };
+
   // 긴급호출 배너 대상: 보이는 사건 중 긴급호출 상태이고 아직 미확인
   const emergencyCases = cases.filter(c => {
     if (!isVisible(c)) return false;
@@ -206,6 +261,19 @@ export function App() {
   });
 
   function triggerClockOut() {
+    if (gameState.flags['completedFirstEnding']) {
+      // 2회차: 날별 NG 퇴근 이벤트만 사용, 1회차 DAY_EVENTS 절대 사용 안 함
+      if (gameState.currentDay === 1 && !gameState.flags['ng1OutingEventDone']) {
+        setActiveEvent(NG_DAY1_OUTING_EVENT);
+        return;
+      }
+      if (gameState.currentDay === 2 && !gameState.flags['ng2OutingEventDone']) {
+        setActiveEvent(NG_DAY2_OUTING_EVENT);
+        return;
+      }
+      clockOut();
+      return;
+    }
     const event = DAY_EVENTS[gameState.currentDay];
     if (event) setActiveEvent(event);
     else clockOut();
@@ -239,14 +307,37 @@ export function App() {
     // 퇴근 이벤트 또는 방송국 방문 종료: 다음 날로 넘어간다
     clockOut();
     const nextDay = gameState.currentDay + 1;
+
+    // 2회차에서는 1회차 DAY_EVENTS 체인 없음 — 인트라넷으로 복귀
+    if (gameState.flags['completedFirstEnding']) {
+      setActiveEvent(null);
+      return;
+    }
+
     setActiveEvent(DAY_EVENTS[nextDay] ?? null);
   }
 
   // 메일 뒤로가기 시 — 특정 소환 메일이면 도착 이벤트 트리거
   function handleMailBack(mailId: string) {
+    if (mailId === 'mail-ng01' && gameState.readMails.includes('mail-ng01') && !gameState.flags['ng1DirectorEventDone']) {
+      setActiveEvent(NG_DAY1_DIRECTOR_EVENT);
+      return;
+    }
     if (mailId === 'mail-009' && !gameState.flags['day4ArrivalDone']) {
       const arrivalEvent = DAY_ARRIVAL_EVENTS[4];
       if (arrivalEvent) setActiveEvent(arrivalEvent);
+    }
+  }
+
+  // 자료보관소 문서 닫기 시 — doc-ng-001 닫으면 4일차 이벤트 트리거
+  function handleDocBack(docId: string) {
+    if (
+      docId === 'doc-ng-001' &&
+      gameState.flags['completedFirstEnding'] &&
+      gameState.currentDay === 3 &&
+      !gameState.flags['ng3Day4IntroDone']
+    ) {
+      setActiveEvent(NG_DAY4_INTRO_EVENT);
     }
   }
 
@@ -311,7 +402,12 @@ export function App() {
 
   // ── 이벤트 화면 ───────────────────────────────────────────
   if (activeEvent) {
-    return <EventScreen event={activeEvent} onComplete={handleEventComplete} />;
+    return <EventScreen key={activeEvent.id} event={activeEvent} onComplete={handleEventComplete} />;
+  }
+
+  // ── 기억 복원 미니게임 (2회차) ─────────────────────────────
+  if (memoryRecoveryActive) {
+    return <MemoryWipeMinigame recoveryMode onComplete={() => handleMemoryRecoveryComplete()} />;
   }
 
   // ── 기억소거 미니게임 ───────────────────────────────────────
@@ -363,7 +459,16 @@ export function App() {
             <div className="emergency-banner__actions">
               <button
                 className="emergency-banner__btn emergency-banner__btn--view"
-                onClick={() => { acknowledgeAlert(c.id); setActiveSection('cases'); }}
+                onClick={() => {
+                  acknowledgeAlert(c.id);
+                  const docId = EMERGENCY_DOC_MAP[c.id];
+                  if (docId) {
+                    setActiveDocId(docId);
+                    setActiveSection('archive');
+                  } else {
+                    setActiveSection('cases');
+                  }
+                }}
               >
                 사건 확인
               </button>
@@ -399,7 +504,7 @@ export function App() {
             case 'cases':     return <CasesPanel />;
             case 'notices':   return <NoticesPanel />;
             case 'forms':     return <FormsPanel targetFormId={activeFormId} />;
-            case 'archive':   return <ArchivePanel targetDocId={activeDocId} />;
+            case 'archive':   return <ArchivePanel targetDocId={activeDocId} onDocClose={handleDocBack} />;
             case 'personnel': return <PersonnelPanel />;
             case 'approval':  return <ApprovalPanel />;
             case 'equipment': return <EquipmentPanel />;
@@ -425,6 +530,13 @@ export function App() {
           [개발자 패널: Ctrl+Shift+A]
         </div>
       </div>
+
+      {/* 자료보관소 신규 문서 알림 토스트 */}
+      <ArchiveToast
+        dismissed={dismissedDocToasts}
+        onOpen={docId => { setActiveDocId(docId); setActiveSection('archive'); }}
+        onDismiss={id => setDismissedDocToasts(prev => new Set([...prev, id]))}
+      />
 
       {/* 메신저 알림 토스트 */}
       <MessengerToast
@@ -465,6 +577,11 @@ export function App() {
           onApproved={(isOutingEvent) => {
             setOutingOpen(false);
             if (isOutingEvent) {
+              // 2회차 4일차 초자연재난 외근
+              if (gameState.flags['completedFirstEnding'] && gameState.currentDay === 4) {
+                setActiveEvent(NG_DAY4_OUTING_EVENT);
+                return;
+              }
               const outingEvent = DAY_OUTING_EVENTS[gameState.currentDay];
               if (outingEvent) { setActiveEvent(outingEvent); return; }
             }

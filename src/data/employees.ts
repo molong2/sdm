@@ -381,4 +381,16 @@ export const employees: Employee[] = [
     notes: '2024년 임용. 주작1팀 막내.',
     unlockDay: 1,
   },
+  {
+    id: 'emp-ng-001',
+    employeeId: 'A-2016-0009',
+    name: '■■',
+    department: '청룡1팀',
+    position: '팀장',
+    rank: '5급',
+    status: 'unknown',
+    joinDate: '2016-05-02',
+    notes: '████▪ 봉인 작전 중 ■█. 사건 관련 세부 기록 접근 제한.',
+    requiredFlags: ['ng3BroadcastFilesRequested'],
+  },
 ];

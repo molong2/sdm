@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { mails } from '../../data/mails';
 import { useGame } from '../../context/GameContext';
 import type { Mail } from '../../types';
@@ -26,19 +26,27 @@ export function MailPanel({ onOpenForm, onOpenDoc, onMailBack }: MailPanelProps)
   const sorted  = [...visible].sort((a, b) => b.date.localeCompare(a.date));
   const unread  = visible.filter(m => !gameState.readMails.includes(m.id)).length;
 
+  // 탭 전환 시 언마운트될 때도 onMailBack이 호출되도록 ref로 추적
+  const selectedIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    selectedIdRef.current = selected?.id ?? null;
+  }, [selected]);
+  useEffect(() => () => {
+    if (selectedIdRef.current) onMailBack?.(selectedIdRef.current);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   function handleSelect(mail: Mail) {
+    const isFirstRead = !gameState.readMails.includes(mail.id);
     setSelected(mail);
     markMailRead(mail.id);
+    if (isFirstRead && mail.onReadFlags) {
+      Object.entries(mail.onReadFlags).forEach(([k, v]) => setFlag(k, v));
+    }
     setComposeOpen(false);
     setReplyText('');
   }
 
-  // 메일을 닫고(목록으로) 나가는 시점에 onReadFlags를 적용한다.
-  // (열람 직후가 아니라, 다 읽고 창을 닫는 순간을 트리거로 삼는다.)
   function handleBack() {
-    if (selected?.onReadFlags) {
-      Object.entries(selected.onReadFlags).forEach(([k, v]) => setFlag(k, v));
-    }
     const mailId = selected!.id;
     setSelected(null);
     onMailBack?.(mailId);
@@ -46,7 +54,16 @@ export function MailPanel({ onOpenForm, onOpenDoc, onMailBack }: MailPanelProps)
 
   function handleSendReply() {
     if (!selected || !replyText.trim()) return;
-    sendMailReply(selected.id, replyText.trim());
+    const text = replyText.trim();
+    sendMailReply(selected.id, text);
+    if (selected.replyKeywords) {
+      const lower = text.toLowerCase();
+      for (const rule of selected.replyKeywords) {
+        if (rule.words.some(w => lower.includes(w.toLowerCase()))) {
+          Object.entries(rule.setFlags).forEach(([k, v]) => setFlag(k, v));
+        }
+      }
+    }
     setReplyText('');
     setComposeOpen(false);
   }

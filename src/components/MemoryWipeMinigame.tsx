@@ -12,6 +12,8 @@ import { useEffect, useRef, useState } from 'react';
 interface Props {
   /** successCount: 성공 횟수, womanBreakdownTriggered: 마지막 대상자에게 '여자가 어떻게 생겼나요?'를 물어 정신붕괴를 유발했는지 */
   onComplete: (successCount: number, womanBreakdownTriggered: boolean) => void;
+  /** true이면 2회차 기억 복원 모드 (대상자가 플레이어 본인, 대사가 다름) */
+  recoveryMode?: boolean;
 }
 
 const TOTAL_ROUNDS = 3;
@@ -36,6 +38,9 @@ const FAIL_LINES = [
 
 // 응답을 받은 뒤 모든 대상자에게 공통으로 건네는 마무리 멘트
 const CLOSING_LINE = '그렇군요. 그럼 이 불빛을 봐 주십시오.';
+
+// 기억 복원 모드 조각 (버튼 1번 누를 때마다 1개씩 나타남)
+const RECOVERY_FRAGMENTS = ['청룡■팀', '■■', '금■'] as const;
 
 interface RoundSubject {
   name: string;
@@ -85,7 +90,7 @@ const ROUND_SUBJECTS: RoundSubject[] = [
 
 type Phase = 'intro' | 'playing' | 'result' | 'talk' | 'breakdown' | 'fail' | 'done';
 
-export function MemoryWipeMinigame({ onComplete }: Props) {
+export function MemoryWipeMinigame({ onComplete, recoveryMode = false }: Props) {
   const [phase, setPhase] = useState<Phase>('intro');
   const [round, setRound] = useState(0); // 0-based
   const [target, setTarget] = useState({ start: 0, width: 0 });
@@ -143,12 +148,22 @@ export function MemoryWipeMinigame({ onComplete }: Props) {
   }
 
   function handleAfterResult() {
+    if (recoveryMode) return; // recovery 모드에서는 사용 안 함
     if (roundHit) {
       setPhase('talk');
     } else {
       setFailText('');
       setFailDone(false);
       setPhase('fail');
+    }
+  }
+
+  function handleRecoveryConfirm() {
+    if (round + 1 >= TOTAL_ROUNDS) {
+      onComplete(0, false); // 완료 화면 없이 바로 오염텍스트 시퀀스로
+    } else {
+      setRound(r => r + 1);
+      startRound();
     }
   }
 
@@ -275,11 +290,19 @@ export function MemoryWipeMinigame({ onComplete }: Props) {
     return (
       <div className="memwipe-bg">
         <div className="memwipe-card">
-          <div className="memwipe-card__title">기억소거 지원</div>
+          <div className="memwipe-card__title">{recoveryMode ? '기억 복원 시도' : '기억소거 지원'}</div>
           <div className="memwipe-card__text">
-            오늘 맡으실 분들은 회색 건물에 노출되어 인지오염 증상을 보이는 민간인 {TOTAL_ROUNDS}명입니다. 방치하면 불안감과 환청, 반복적인 환각이 점점 심해질 수 있어 기억소거가 필요합니다.
-            <br /><br />
-            간단히 면담을 마치고 불빛을 보여드리면, 박자에 맞춰 시행해 주세요. 박자가 어긋나면 소거가 제대로 들어가지 않을 수 있습니다.
+            {recoveryMode ? (
+              <>
+                기억소거용 장치를 역방향으로 운용합니다.
+              </>
+            ) : (
+              <>
+                오늘 맡으실 분들은 회색 건물에 노출되어 인지오염 증상을 보이는 민간인 {TOTAL_ROUNDS}명입니다. 방치하면 불안감과 환청, 반복적인 환각이 점점 심해질 수 있어 기억소거가 필요합니다.
+                <br /><br />
+                간단히 면담을 마치고 불빛을 보여드리면, 박자에 맞춰 시행해 주세요. 박자가 어긋나면 소거가 제대로 들어가지 않을 수 있습니다.
+              </>
+            )}
           </div>
           <button className="memwipe-btn" onClick={startRound}>시작</button>
         </div>
@@ -382,11 +405,27 @@ export function MemoryWipeMinigame({ onComplete }: Props) {
     <div className="memwipe-bg">
       <div className="memwipe-card memwipe-card--game">
         <div className="memwipe-card__title">
-          기억소거 — {subject.name} ({subject.age}세, {subject.gender})
+          {recoveryMode
+            ? '기억 복원'
+            : `기억소거 — ${subject.name} (${subject.age}세, ${subject.gender})`}
         </div>
 
-        {/* 진행 중 머리 위로 지나가는 면담 텍스트 */}
-        {phase === 'playing' && (
+        {/* 기억 복원 모드: bar 위 오버레이로 조각 누적 */}
+        {recoveryMode && (phase === 'playing' || phase === 'result') && (
+          <div className="memwipe-overlay-dialogue">
+            {RECOVERY_FRAGMENTS.slice(0, round).map((frag, i) => (
+              <div key={i} className="memwipe-recovery-fragment">{frag}</div>
+            ))}
+            {phase === 'result' && (
+              <div className="memwipe-recovery-fragment memwipe-recovery-fragment--new">
+                {RECOVERY_FRAGMENTS[round]}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 일반 모드: 진행 중 머리 위로 지나가는 면담 텍스트 */}
+        {!recoveryMode && phase === 'playing' && (
           <div className="memwipe-overlay-dialogue">
             {overlayLineIndex >= 1 && (
               <div className="memwipe-dialogue__line">
@@ -429,7 +468,13 @@ export function MemoryWipeMinigame({ onComplete }: Props) {
           <button className="memwipe-btn" onClick={handleStrike}>시행</button>
         )}
 
-        {phase === 'result' && (
+        {/* 기억 복원 모드 결과: 확인 버튼만 */}
+        {recoveryMode && phase === 'result' && (
+          <button className="memwipe-btn" onClick={handleRecoveryConfirm}>확인</button>
+        )}
+
+        {/* 일반 모드 결과 */}
+        {!recoveryMode && phase === 'result' && (
           <>
             <div className={`memwipe-result memwipe-result--${roundHit ? 'hit' : 'miss'}`}>
               {roundHit ? '성공' : '실패'}

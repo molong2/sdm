@@ -93,6 +93,9 @@ export function CasesPanel() {
     if (c.onReadFlags) {
       Object.entries(c.onReadFlags).forEach(([k, v]) => setFlag(k, v));
     }
+    if (gameState.flags['completedFirstEnding'] && gameState.currentDay >= 2 && !gameState.flags['ng2CaseRead']) {
+      setFlag('ng2CaseRead', true);
+    }
     const eff = getEffectiveStatus(c.id, c.status);
     setNewStatus(eff === '긴급호출' ? '진행중' : eff);
     setNoteText('');

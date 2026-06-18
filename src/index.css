@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    초자연재난관리국 업무망 — 전역 스타일
    한국 정부 인트라넷 (라이트 테마)
    ============================================================ */
@@ -1114,6 +1114,90 @@ body {
 .messenger-toast__close:hover { color: var(--text-1); }
 
 /* ============================================================
+   자료보관소 신규 문서 알림 토스트
+   ============================================================ */
+
+.archive-toast-zone {
+  position: fixed;
+  bottom: calc(var(--status-h) + 12px);
+  right: 16px;
+  z-index: 499;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  /* 메신저 토스트(z-index:500)보다 아래에 쌓이도록 여백 추가 */
+  margin-bottom: 0;
+}
+
+.archive-toast {
+  width: 280px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 10px 10px 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,.16);
+  animation: toast-in 150ms ease-out;
+}
+
+.archive-toast:hover { box-shadow: 0 6px 20px rgba(0,0,0,.24); }
+
+.archive-toast__icon {
+  position: relative;
+  width: 36px; height: 36px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px; font-weight: 700;
+  flex-shrink: 0;
+}
+
+.archive-toast__dot {
+  position: absolute;
+  top: 0; right: 0;
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.archive-toast__info { flex: 1; min-width: 0; }
+
+.archive-toast__label {
+  font-size: 10px;
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.archive-toast__title {
+  font-size: 11px;
+  color: var(--text-1);
+  font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.archive-toast__close {
+  background: none; border: none;
+  color: var(--text-3);
+  font-size: 17px; line-height: 1;
+  cursor: pointer; padding: 2px 4px;
+  flex-shrink: 0;
+  transition: color var(--t);
+}
+
+.archive-toast__close:hover { color: var(--text-1); }
+
+/* ============================================================
    단체 대화방 — 1:1 메신저와 구분되는 배경색(주황/카키 계열)
    ============================================================ */
 
@@ -1536,6 +1620,10 @@ body {
   color: #c0ccd8;
   margin: 0;
   word-break: keep-all;
+}
+
+.ev-p--glitch {
+  animation: memwipe-glitch 2.2s infinite steps(1);
 }
 
 /* 선택지 */
@@ -2924,6 +3012,8 @@ body {
   color: var(--text-1);
   font-family: var(--font);
   word-break: break-word;
+}
+.doc-corrupted-line--glitch {
   animation: memwipe-glitch 2.2s infinite steps(1);
 }
 
@@ -3375,6 +3465,49 @@ body {
 .memwipe-btn--secondary:hover { background: #263444; }
 .memwipe-btn--secondary:active { background: #1a2330; }
 
+/* ── 기억 복원 모드 ── */
+.memwipe-recovery-fragment {
+  font-family: var(--font);
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #e8a8c0;
+  text-align: center;
+  animation: memwipe-glitch 2.2s infinite steps(1);
+}
+
+.memwipe-recovery-fragment--new {
+  animation: memwipe-glitch 2.2s infinite steps(1), recovery-fadein 0.4s ease-out;
+}
+
+@keyframes white-light-expand {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
+  to   { transform: translate(-50%, -50%) scale(35); opacity: 1; }
+}
+
+@keyframes onair-flicker {
+  0%   { opacity: 1; }
+  7%   { opacity: 0; }
+  10%  { opacity: 1; }
+  28%  { opacity: 1; }
+  30%  { opacity: 0; }
+  32%  { opacity: 0.6; }
+  34%  { opacity: 1; }
+  68%  { opacity: 1; }
+  70%  { opacity: 0; }
+  72%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes error-box-in {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.95); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes recovery-fadein {
+  from { opacity: 0; filter: blur(4px); }
+  to   { opacity: 1; filter: blur(0);   }
+}
+
 /* ============================================================
    이벤트 — 블랙아웃 방송 모드
    ============================================================ */
@@ -3420,6 +3553,15 @@ body {
   animation: memwipe-glitch 2.2s infinite steps(1);
 }
 
+/* 평범한 흰 글씨 (글리치 없음) — 끼익·음성 대사 등 */
+.ev-blackout__text--plain {
+  color: #d8d8d8;
+  animation: none;
+  text-align: center;
+  text-align-last: center;
+  word-break: keep-all;
+}
+
 .ev-blackout__text--squeak,
 .ev-blackout--dim .ev-blackout__text--squeak {
   font-family: var(--font);
@@ -3449,6 +3591,18 @@ body {
 
 .ev-blackout--flicker {
   animation: screen-flicker 4s ease forwards;
+}
+
+@keyframes text-blur-out {
+  0%   { filter: blur(0px);  opacity: 1;   }
+  40%  { filter: blur(1px);  opacity: 0.9; }
+  100% { filter: blur(14px); opacity: 0;   }
+}
+
+.ev-blackout--text-blur .ev-blackout__text {
+  animation: memwipe-glitch 2.2s infinite steps(1), text-blur-out 1.8s ease-in 0.8s forwards;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 @keyframes intranet-glitch {
@@ -3588,6 +3742,7 @@ body {
   text-align-last: left;
   pointer-events: none;
   animation: memwipe-glitch 2.2s infinite steps(1);
+  transition: color 1.5s ease;
 }
 
 .ev-blackout__choices {
@@ -3595,7 +3750,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 28px;
 }
 
 .ev-blackout__btn {
@@ -3613,6 +3768,23 @@ body {
 
 .ev-blackout__btn:hover { color: #7a3050; }
 .ev-blackout__btn:active { color: #a04060; }
+
+/* dim 모드(최종 선택지 화면)의 선택지 버튼 — 흰색 + 크게 + 볼드 이탤릭 */
+.ev-blackout--dim .ev-blackout__btn {
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  font-style: italic;
+}
+.ev-blackout--dim .ev-blackout__btn:hover  { color: #cccccc; }
+.ev-blackout--dim .ev-blackout__btn:active { color: #aaaaaa; }
+
+/* glitch-censor 라벨 — 검열 이펙트 위에 글리치 애니메이션 추가 */
+.ev-blackout__btn-glitch-label {
+  animation: memwipe-glitch 2.2s infinite steps(1);
+  display: inline;
+}
 
 /* ============================================================
    이벤트 — 걷기 연출 모드

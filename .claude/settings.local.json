@@ -71,7 +71,16 @@
       "PowerShell(\\(Get-Content \"c:\\\\프로젝트\\\\재관국\\\\node_modules\\\\vite\\\\package.json\" | ConvertFrom-Json\\).peerDependencies)",
       "PowerShell(cd \"c:\\\\프로젝트\\\\재관국\"; $exclude = @\\(\"node_modules\", \"dist\", \".git\", \"scripts\"\\); $src = \"c:\\\\프로젝트\\\\재관국\"; $dest = \"c:\\\\tmp\\\\재관국_배포.zip\"; if \\(Test-Path $dest\\) { Remove-Item $dest }; $files = Get-ChildItem $src -Recurse | Where-Object { $path = $_.FullName.Replace\\($src + \"\\\\\", \"\"\\); $top = $path.Split\\(\"\\\\\"\\)[0]; $exclude -notcontains $top }; Compress-Archive -Path \\($files | Select-Object -ExpandProperty FullName\\) -DestinationPath $dest -ErrorAction SilentlyContinue; Write-Host \"완료: $dest\"; \\(Get-Item $dest\\).Length / 1MB)",
       "PowerShell(Test-Path \"c:\\\\tmp\\\\재관국_배포.zip\"; if \\(Test-Path \"c:\\\\tmp\\\\재관국_배포.zip\"\\) { \\(Get-Item \"c:\\\\tmp\\\\재관국_배포.zip\"\\).Length / 1MB })",
-      "PowerShell(Stop-Process -Id 7224 -Force)"
+      "PowerShell(Stop-Process -Id 7224 -Force)",
+      "Bash(ls \"C:/Users/나현아/.claude/projects/c----------/\" 2>/dev/null | head -20)",
+      "Read(//c/Users/나현아/.claude/projects/c----------/**)",
+      "Bash(ls \"C:/Users/나현아/.claude/projects/\" 2>/dev/null)",
+      "Read(//c/Users/나현아/.claude/projects/**)",
+      "Bash(node -e \"const d = require\\('./src/data/documents.json'\\); const withFlags = d.filter\\(x => x.requiredFlags && x.requiredFlags.length > 0\\); console.log\\(withFlags.map\\(x => x.id + ' | ' + x.title\\).join\\('\\\\n'\\)\\);\")",
+      "PowerShell($content = Get-Content \"c:\\\\프로젝트\\\\재관국\\\\src\\\\components\\\\EventScreen.tsx\" -Raw -Encoding UTF8; $bytes = [System.Text.Encoding]::UTF8.GetBytes\\($content.Substring\\(0, 200\\)\\); $bytes[0..30] | ForEach-Object { $_.ToString\\(\"X2\"\\) } | Join-String -Separator \" \")",
+      "PowerShell($content = Get-Content \"c:\\\\프로젝트\\\\재관국\\\\src\\\\components\\\\EventScreen.tsx\" -Raw -Encoding UTF8; $bytes = [System.Text.Encoding]::UTF8.GetBytes\\($content.Substring\\(0, 50\\)\\); \\($bytes | ForEach-Object { $_.ToString\\(\"X2\"\\) }\\) -join \" \")",
+      "PowerShell($content = Get-Content \"c:\\\\프로젝트\\\\재관국\\\\src\\\\components\\\\EventScreen.tsx\" -Raw -Encoding UTF8; $content -match '\\\\r\\\\n' | Out-Null; \"Has CRLF: $\\($content -match '\\\\r\\\\n'\\)\"; $content -match '\\\\n' | Out-Null; \"Has LF: $\\($content -match '\\\\n'\\)\")",
+      "PowerShell($content = Get-Content \"c:\\\\프로젝트\\\\재관국\\\\src\\\\components\\\\EventScreen.tsx\" -Raw -Encoding UTF8; $idx = $content.IndexOf\\(\"censored.has\\(i\\) ?\"\\); \"Found at index: $idx\"; $snippet = $content.Substring\\($idx, 40\\); $bytes = [System.Text.Encoding]::UTF8.GetBytes\\($snippet\\); \\($bytes | ForEach-Object { $_.ToString\\(\"X2\"\\) }\\) -join \" \")"
     ],
     "additionalDirectories": [
       "c:\\tmp"

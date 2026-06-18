@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, useMemo } from 'react';
 import type { GameState, Flags, VisibilityCondition, CaseStatus, CaseNote, ApprovalStatus, Mail } from '../types';
-import { CLOCKOUT_REQUIREMENTS, DAY_RESET_FLAGS } from '../data/config';
+import { CLOCKOUT_REQUIREMENTS, DAY_RESET_FLAGS, DAY_RESET_CASES, DAY_RESET_MAILS } from '../data/config';
 import { mails } from '../data/mails';
 import { approvals } from '../data/approvals';
 import { submittableForms } from '../data/forms';
@@ -236,7 +236,10 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     const formIds       = submittableForms.filter(f => f.unlockDay === day).map(f => f.id);
     const chatIds       = messengerChats.filter(c => c.unlockDay === day).map(c => c.id);
     const groupChatIds  = groupChats.filter(g => g.unlockDay === day).map(g => g.id);
-    const dayFlags       = DAY_RESET_FLAGS[day] ?? [];
+    const dayFlags        = DAY_RESET_FLAGS[day] ?? [];
+    const resetCaseIds    = DAY_RESET_CASES[day] ?? [];
+    const allResetCaseIds = [...caseIds, ...resetCaseIds];
+    const extraMailIds    = DAY_RESET_MAILS[day] ?? [];
 
     setGameState(prev => {
       const flags = { ...prev.flags };
@@ -250,18 +253,25 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
       const chatChoices  = { ...prev.chatChoices };
       [...chatIds, ...groupChatIds].forEach(id => { delete chatProgress[id]; delete chatChoices[id]; });
 
+      const caseStatuses = { ...prev.caseStatuses };
+      const caseNotes    = { ...prev.caseNotes };
+      allResetCaseIds.forEach(id => { delete caseStatuses[id]; delete caseNotes[id]; });
+
       return {
         ...prev,
-        readMails:     prev.readMails.filter(id => !mailIds.includes(id)),
+        readMails:     prev.readMails.filter(id => !mailIds.includes(id) && !extraMailIds.includes(id)),
         readCases:     prev.readCases.filter(id => !caseIds.includes(id)),
         readDocuments: prev.readDocuments.filter(id => !docIds.includes(id)),
         reportedDocuments: prev.reportedDocuments.filter(id => !docIds.includes(id)),
         submittedForms: prev.submittedForms.filter(id => !formIds.includes(id)),
+        acknowledgedAlerts: prev.acknowledgedAlerts.filter(id => !allResetCaseIds.includes(id)),
         flags,
         approvalStatuses,
         approvalNotes,
         chatProgress,
         chatChoices,
+        caseStatuses,
+        caseNotes,
       };
     });
   }, []);
@@ -286,6 +296,9 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
       }
       if (item.requiredAnyFlags && item.requiredAnyFlags.length > 0) {
         if (!item.requiredAnyFlags.some(flag => gameState.flags[flag] === true)) return false;
+      }
+      if (item.excludeFlags && item.excludeFlags.some(flag => gameState.flags[flag] === true)) {
+        return false;
       }
       if (item.ownerAccount && item.ownerAccount !== gameState.currentAccountId) {
         return false;

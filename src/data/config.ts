@@ -39,9 +39,8 @@ export interface DayRequirements {
  */
 export const CLOCKOUT_REQUIREMENTS: Record<number, DayRequirements> = {
   1: { allMails: true, allApprovalsResolved: true, allForms: true },
-  2: { requiredFlags: ['respondedTeamChat'] },
+  2: { requiredFlags: ['respondedTeamChat'], allApprovalsResolved: true },
   3: { allMails: true, allApprovalsResolved: true },
-  4: { requiredFlags: ['equipmentMailRead'] },
 };
 
 // ============================================================
@@ -68,10 +67,29 @@ export const DAY_RESET_FLAGS: Record<number, string[]> = {
     'triggeredTeamChat',
     'respondedTeamChat',
   ],
-  3: ['viewedSuicideBroadcastCase', 'reportedTrafficBroadcastDoc', 'approvedRiskUpgrade'],
-  4: ['day4ArrivalDone', 'equipmentAccessGranted', 'day4_dobaegiGranted', 'equipmentMailRead', 'day4NightDone', 'foundConspiracySite'],
+  3: ['viewedSuicideBroadcastCase', 'reportedTrafficBroadcastDoc', 'approvedRiskUpgrade', 'ng3RecordRead', 'ng3Day4IntroDone'],
+  4: ['day4ArrivalDone', 'equipmentAccessGranted', 'day4_dobaegiGranted', 'equipmentMailRead', 'day4NightDone', 'foundConspiracySite', 'ng4GolimMessengerRead', 'ng4GBSEmergencyRead', 'ng4OutingEnabled', 'ng4OutingDone', 'ng4EndingSeal', 'ng4EndingCut', 'ng4EndingMerge'],
   5: ['readYuriLab', 'day5OutingEnabled', 'day5OutingDone', 'day5OutingReveal', 'day5_protoGranted'],
   6: ['readDay6Case', 'day6OutingEnabled', 'day6OutingDone'],
+};
+
+/**
+ * 일차 초기화 시 caseStatuses·caseNotes에서 제거하고
+ * acknowledgedAlerts에서도 해제할 사건 ID 목록.
+ * (unlockDay로 자동 판별되지 않는 케이스만 등록)
+ */
+export const DAY_RESET_CASES: Record<number, string[]> = {
+  4: ['case-003'],
+};
+
+/**
+ * 일차 초기화 시 readMails에서 강제 제거할 메일 ID 목록.
+ * unlockDay가 다른 일차인 메일이지만, 해당 일차 초기화와 함께
+ * 다시 미읽음 상태로 돌아가야 할 경우(onReadFlags로 연동된 플래그 재작동)에만 등록.
+ */
+export const DAY_RESET_MAILS: Record<number, string[]> = {
+  // 4일차 초기화 시 equipmentAccessGranted도 초기화되므로, 이를 세팅하는 3일차 RE:메일도 미읽음 처리
+  4: ['mail-ng-day3-reply'],
 };
 
 // ============================================================
@@ -115,6 +133,7 @@ export interface OutingCondition {
 }
 
 export const OUTING_CONDITIONS: Record<number, OutingCondition> = {
+  4: { reason: 'supernatural', requiredFlag: 'ng4OutingEnabled',  doneFlag: 'ng4OutingDone' },
   5: { reason: 'other',        requiredFlag: 'day5OutingEnabled', doneFlag: 'day5OutingDone' },
   6: { reason: 'supernatural', requiredFlag: 'day6OutingEnabled', doneFlag: 'day6OutingDone' },
 };

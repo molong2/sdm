@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // 게임 전체 타입 정의
 // 데이터 파일에서 이 타입들을 import하여 사용합니다.
 // ============================================================
@@ -11,6 +11,8 @@ export interface VisibilityCondition {
   requiredFlags?: string[];
   /** 이 플래그들 중 하나라도 true면 표시됨 (OR 조건) */
   requiredAnyFlags?: string[];
+  /** 이 플래그들 중 하나라도 true면 숨김 */
+  excludeFlags?: string[];
   /**
    * 설정 시 해당 계정으로 로그인되어 있을 때만 표시됨.
    * 예: ownerAccount: 'acc-kim' → acc-kim 계정 접속 중에만 보임.
@@ -42,6 +44,8 @@ export interface Mail extends VisibilityCondition {
   system?: boolean;
   /** 이 메일을 최초로 열람했을 때 설정할 플래그 */
   onReadFlags?: Record<string, boolean>;
+  /** 답장 텍스트에 키워드가 포함될 때 설정할 플래그 */
+  replyKeywords?: { words: string[]; setFlags: Record<string, boolean> }[];
 }
 
 // ─── 서류제출 양식 ─────────────────────────────────────────────
@@ -139,8 +143,8 @@ export interface Document extends VisibilityCondition {
   date: string;
   content: string;
   tags?: string[];
-  /** 본문 뒤에 글리치 효과로 표시할 오염 텍스트 라인 (예: 녹취 필사본) */
-  corruptedLines?: string[];
+  /** 본문 뒤에 표시할 오염 텍스트 라인. string은 기본 스타일, { text, glitch: true }는 글리치 애니메이션 적용. */
+  corruptedLines?: (string | { text: string; glitch: true })[];
   /** true면 문서 상세에 "오염 문서 신고" 버튼이 표시됨 */
   reportable?: boolean;
   /** "오염 문서 신고" 버튼을 눌렀을 때 설정할 플래그 */
@@ -235,6 +239,8 @@ export interface EventChoice {
    * 예: 3개 이상 방문 시 추가 탐색 선택지를 모두 숨김.
    */
   excludeWhenFlagCount?: { flags: string[]; minCount: number };
+  /** 특수 라벨 렌더링 스타일. 'glitch-censor': 200ms마다 랜덤 검열 패턴 교체 */
+  labelStyle?: 'glitch-censor';
 }
 
 /** 이벤트 장면 하나 */
@@ -273,14 +279,30 @@ export interface EventScene {
    * isBlackout: true 와 함께 사용. 텍스트를 흐리게 표시 (구조 장면 등).
    */
   blackoutDim?: boolean;
+  /** isBlackout 씬에서 텍스트를 서서히 흐릿하게 blur-out시키는 연출 */
+  textBlur?: boolean;
   /** isBlackout 씬에서 타이핑 완료 후 자동으로 첫 번째 choice로 이동. ms 단위 (기본 1000). */
   autoNext?: boolean;
   autoNextDelay?: number;
   /** 타이핑을 느리게 (1자/500ms). 발소리 등 연출용. */
   slowTyping?: boolean;
   /** 타이틀 스타일 텍스트 (큰 폰트, 볼드). */
-  textStyle?: 'title' | 'squeak' | 'corrupted';
+  textStyle?: 'title' | 'squeak' | 'corrupted' | 'normal' | 'plain';
+  /** 일반(비블랙아웃) 씬에서 텍스트에 memwipe-glitch 색상+애니메이션 적용 (특정 대사 검열 연출용) */
+  glitchText?: boolean;
+  /** 일반 씬에서 이 인덱스 이상인 단락부터 글리치 클래스 적용 (하단으로 갈수록 오염되는 연출용) */
+  glitchFromParagraph?: number;
+  /** 블랙아웃 씬에서 타이핑 완료와 무관하게 N ms 후 강제 다음 씬으로 전환 (오염 텍스트 페이드아웃 연출용) */
+  hardTimeout?: number;
+  /** N ms 후 글리치 오버레이를 페이드인 (plain 텍스트 위에 오염 레이어가 덮이는 연출용) */
+  glitchAfterMs?: number;
   screenFlicker?: boolean;
+  /** 봉인 실패 연출: 빨간 에러 박스가 화면을 뒤덮은 뒤 게임 전체 초기화 */
+  errorSpread?: boolean;
+  /** 합체 엔딩: 빛 확산 → ON AIR 깜빡임 → 브라우저 강제종료 */
+  lightEnding?: boolean;
+  /** 베어냄 엔딩: 직사각형 텍스트 갈라짐 → 고마워 → 사랑해 reveal */
+  cutEnding?: boolean;
   /** ev-blackout__text에 인라인으로 덮어쓸 text-align. dim 씬 기본값(center) 재정의용. */
   textAlign?: 'justify' | 'center' | 'left';
   /**

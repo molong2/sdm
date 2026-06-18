@@ -111,4 +111,24 @@ export const approvals: ApprovalDocument[] = [
     onApprovedFlags: { approvedRiskUpgrade: true },
     unlockDay: 3,
   },
+  {
+    id: 'appr-ng2-001',
+    docNumber: '현무1팀 내결 제2026-16호',
+    title: '현장 소모품 구입 신청서',
+    requester: '창파 (현무1팀 요원)',
+    requestedDate: '2026-06-19',
+    category: '구매',
+    content: `신청인: 창파 (A-2012-0015)
+소속: 현무1팀
+
+구입 물품: 현장 측정 장비용 소모품 (배터리 4종, 측정 기록지 2묶음)
+예상 금액: 37,200원
+구입 사유: 팀 보유 재고 소진 — 현장 투입 시 필요
+
+────────────────────
+
+※ 팀장 공석 기간 중 재고 확인이 지연되었던 건입니다. 처리 부탁드립니다.`,
+    unlockDay: 2,
+    requiredFlags: ['completedFirstEnding', 'ng2BaekhoEventDone'],
+  },
 ];
