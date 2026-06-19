@@ -41,6 +41,7 @@ export const CLOCKOUT_REQUIREMENTS: Record<number, DayRequirements> = {
   1: { allMails: true, allApprovalsResolved: true, allForms: true },
   2: { requiredFlags: ['respondedTeamChat'], allApprovalsResolved: true },
   3: { allMails: true, allApprovalsResolved: true },
+  4: { requiredFlags: ['day4ArrivalDone'] },
 };
 
 // ============================================================

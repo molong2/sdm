@@ -306,15 +306,7 @@ export function App() {
 
     // 퇴근 이벤트 또는 방송국 방문 종료: 다음 날로 넘어간다
     clockOut();
-    const nextDay = gameState.currentDay + 1;
-
-    // 2회차에서는 1회차 DAY_EVENTS 체인 없음 — 인트라넷으로 복귀
-    if (gameState.flags['completedFirstEnding']) {
-      setActiveEvent(null);
-      return;
-    }
-
-    setActiveEvent(DAY_EVENTS[nextDay] ?? null);
+    setActiveEvent(null);
   }
 
   // 메일 뒤로가기 시 — 특정 소환 메일이면 도착 이벤트 트리거

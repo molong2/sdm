@@ -291,7 +291,7 @@ export const NG_DAY4_INTRO_EVENT: DayEvent = {
       text: '금양이 자리에서 일어섰다.\n\n"하... 됐어요. 몸 좀 괜찮아지면 일어나세요. 벌써 업무 쌓여 있을 거예요."',
       isEnd: true,
       endLabel: '자리로 돌아간다',
-      arrivalFlags: { ng3Day4IntroDone: true },
+      arrivalFlags: { ng3Day4IntroDone: true, day4ArrivalDone: true },
     },
   },
 };
