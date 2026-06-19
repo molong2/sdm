@@ -311,7 +311,7 @@ export interface EventScene {
    * ifFlagSet: 이벤트 내부 플래그가 true이면 then, 아니면 else.
    * 두 조건이 모두 있으면 AND 조건 (둘 다 충족해야 then).
    */
-  autoRoute?: { ifHasItems?: string[]; ifFlagSet?: string; then: string; else: string };
+  autoRoute?: { ifHasItems?: string[]; ifFlagSet?: string; chance?: number; then: string; else: string };
   /**
    * 귀가 걷기 연출 모드. 기존 UI를 모두 숨기고 단어 스트립+배경 텍스트를 표시.
    * 각 step의 마지막 단어(style:'action')가 점멸하며 클릭 시 다음 step으로 진행.

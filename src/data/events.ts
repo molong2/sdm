@@ -396,7 +396,13 @@ export const NG_DAY4_OUTING_EVENT: DayEvent = {
       location: '세광특별시 / GBS 방송국 부지 인근',
       time: '11:40',
       text: '두 시간이 넘게 지났다.\n\n샘플 채취, 사진 기록, 좌표 마킹까지. 우리는 프로토콜에 따라 체크리스트를 하나씩 지워 나갔다.\n\n어느새 햇볕이 강해졌고, 아스팔트에서 열기가 올라오기 시작했다. 때맞춰 어지럼증이 심해진다.\n\n소방차 그늘 쪽에 빈자리가 있길래 잠시 앉아서 눈을 붙였다.',
-      choices: [{ label: '...', next: 'hongpa' }],
+      choices: [{ label: '...', next: 'hongpa_check' }],
+    },
+    hongpa_check: {
+      id: 'hongpa_check',
+      location: '',
+      text: '',
+      autoRoute: { ifHasItems: ['eq-012'], chance: 1, then: 'hongpa', else: 'overnight' },
     },
     hongpa: {
       id: 'hongpa',

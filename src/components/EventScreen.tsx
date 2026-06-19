@@ -446,10 +446,11 @@ export function EventScreen({ event, onComplete }: Props) {
     if (scene.arrivalFlags) {
       setFlags(prev => ({ ...prev, ...scene.arrivalFlags }));
     }
-    const { ifHasItems, ifFlagSet, then, else: elsePath } = scene.autoRoute;
+    const { ifHasItems, ifFlagSet, chance, then, else: elsePath } = scene.autoRoute;
     const itemsOk = !ifHasItems || ifHasItems.every(id => gameState.inventory.includes(id));
     const flagOk = !ifFlagSet || !!(flags[ifFlagSet]);
-    setSceneId(itemsOk && flagOk ? then : elsePath);
+    const chanceOk = chance === undefined || Math.random() < chance;
+    setSceneId(itemsOk && flagOk && chanceOk ? then : elsePath);
   }, [sceneId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 일반/워크 장면 전환 처리

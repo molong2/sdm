@@ -313,6 +313,25 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const canClockOut = useMemo(() => {
+    // 2회차 3일차: 백호팀 면담 시퀀스 완료 전 퇴근 불가
+    // (명경 채팅에서 '지금은 어렵다' 선택 시 respondedTeamChat만 세팅되어
+    //  ng2BaekhoEventDone 없이 2일차 퇴근이 가능하고, 이 경우 3일차 콘텐츠가
+    //  4일차까지 밀리는 문제를 방지)
+    if (
+      gameState.flags['completedFirstEnding'] &&
+      gameState.currentDay === 3 &&
+      !gameState.flags['ng2BaekhoEventDone']
+    ) return false;
+
+    // 2회차 3일차: doc-ng-001(금강 녹취록) 열람 전 퇴근 불가
+    // 이 문서를 닫을 때 NG_DAY4_INTRO_EVENT가 발동해 자동으로 4일차로 넘어가므로,
+    // 열람 없이 퇴근하면 4일차에서 해당 이벤트가 영구 차단된다.
+    if (
+      gameState.flags['completedFirstEnding'] &&
+      gameState.currentDay === 3 &&
+      !gameState.flags['ng3RecordRead']
+    ) return false;
+
     const req = CLOCKOUT_REQUIREMENTS[gameState.currentDay];
     // 해당 일차에 항목이 없으면 외근신청만 가능 (퇴근 버튼 비활성)
     // 빈 객체 {}를 명시하면 조건 없이 퇴근 가능
